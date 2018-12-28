@@ -29,6 +29,12 @@ namespace ConsoleApp18
         Three = 3,
         Two = 2
     }
+    public enum GamerStatus
+    {
+        Win = 1,
+        Lost = 2,
+        Plays = 3
+    }
 
     public class Card
     {
@@ -94,7 +100,12 @@ namespace ConsoleApp18
         }
     }
 
-
+    public class Gamer
+    {
+        public string Name;
+        public int Points;
+        public 
+    }
 
     class Program
     {
