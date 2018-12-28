@@ -30,12 +30,7 @@ namespace ConsoleApp18
     //    Three = 3,
     //    Two = 2
     //}
-    public enum GamerStatus
-    {
-        Win = 1,
-        Lost = 2,
-        Plays = 3
-    }
+   
     public class Cards
     {
         public int Points;
@@ -119,10 +114,12 @@ namespace ConsoleApp18
 
     public class Gamer
     {
+        public static string[] GamerStatusArray = new string[] {"Win","Lost","Plays" };
+
         public int GamerIndex;
         public string GamerName;
         public int GamerPoints;
-        public GamerStatus Status;
+        public string Status;
     }
 
 
@@ -131,24 +128,37 @@ namespace ConsoleApp18
 
         static void Main(string[] args)
         {
-            //Console.WriteLine("Game Start!");
-            //Console.WriteLine("Select the number of players from 2 to 6!");
-            //int numberOfPlayers = Int32.Parse(Console.ReadLine());
-            //for (int i = 0; i < numberOfPlayers; i++)
-            //{
-            //    string Name = Console.ReadLine();
-            //    Gamer SomeGamer = new Gamer { GamerName = Name, GamerIndex = i, GamerPoints = 0, Status = GamerStatus.Plays };
-            //}
+            Console.WriteLine("Game Start!");
+            Console.WriteLine("Select the number of players from 2 to 6!");
+            int numberOfPlayers = Int32.Parse(Console.ReadLine());
+            Gamer[] AllGamers = new Gamer[numberOfPlayers];
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+
+                Console.WriteLine("Enter the name of {0} Gamer",i+1);
+                string Name = Console.ReadLine();
+
+                AllGamers[i] = new Gamer { GamerIndex = i, GamerPoints = 0, GamerName = Name, Status = Gamer.GamerStatusArray[2] };
+            }
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                Console.WriteLine("Index = {0},Name = {1}, Gaimer Points = {2}, Status = {3}", AllGamers[i].GamerIndex, AllGamers[i].GamerName, AllGamers[i].GamerPoints, AllGamers[i].Status);
+                    }
+
             var elementDict = Cards.CardPointDict["Two"];
 
             var newDeck = CardDeck.Deck();
-            foreach (var element in newDeck)
-            {
-                Console.WriteLine("{0},{1}", element.CardNumber, element.Suit);
-            }
-            var SomeCard = CardDeck.TakeSomeCard(newDeck);
-            var pointsDict = Cards.CardPointDict[SomeCard.CardNumber];
-            Console.WriteLine(pointsDict);
+           
+
+            //for (int i = 1; i < 53; i++)
+            //{
+            //    var SomeCard = CardDeck.TakeSomeCard(newDeck);
+            //    var pointsDict = Cards.CardPointDict[SomeCard.CardNumber];
+            //    Console.WriteLine("{0} {1} {2} {3} ", i, SomeCard.CardNumber,SomeCard.Suit, pointsDict);
+            //}
+
+
+
 
 
 
