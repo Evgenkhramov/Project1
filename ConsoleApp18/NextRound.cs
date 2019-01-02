@@ -19,6 +19,7 @@ namespace ConsoleApp18
                 Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.Suit, SomeGamer.GamerPoints);
             }
             
+            
         }
         public static string DoGamerStatus(Gamer SomeGamer)
         {

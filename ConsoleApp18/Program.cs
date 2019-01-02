@@ -45,6 +45,8 @@ namespace ConsoleApp18
             }
             NextRound.DoGamerStatus(GamerArray[0]);
             NextRound.RoundForGamer(GamerArray[0], newSomeDeck);
+            NextRound.DoGamerStatus(GamerArray[1]);
+            NextRound.RoundForGamer(GamerArray[1], newSomeDeck);
 
 
 
