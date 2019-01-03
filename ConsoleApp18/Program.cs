@@ -23,17 +23,7 @@ namespace ConsoleApp18
             GamerArray[0].GamerName = "Casino";
             GamerArray[1].GamerName = UserName;
            
-            //Console.WriteLine("Select the number of players from 2 to 6!");
-            //int numberOfPlayers = Int32.Parse(Console.ReadLine());
-            //Gamer[] AllGamers = new Gamer[numberOfPlayers];
-            //for (int i = 1; i < numberOfPlayers; i++)
-            //{
-
-            //    Console.WriteLine("Enter the name of {0} Gamer", i + 1);
-            //    string Name = Console.ReadLine();
-
-            //    AllGamers[i] = new Gamer { GamerIndex = i, GamerPoints = 0, GamerName = Name, GamerStatus = Gamer.GamerStatusArray[2] };
-            //}
+          
             Console.WriteLine("******** New round Start! ********");
             Console.WriteLine("Enter your Rate please from 1 $ to 50 $");
             var newSomeDeck = CardDeck.Deck();
@@ -43,9 +33,9 @@ namespace ConsoleApp18
             {
                 FirstRound.DoRound(GamerArray, newSomeDeck);
             }
-            NextRound.DoGamerStatus(GamerArray[0]);
+           
             NextRound.RoundForGamer(GamerArray[0], newSomeDeck);
-            NextRound.DoGamerStatus(GamerArray[1]);
+           
             NextRound.RoundForGamer(GamerArray[1], newSomeDeck);
 
 

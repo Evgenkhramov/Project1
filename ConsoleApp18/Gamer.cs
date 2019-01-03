@@ -8,7 +8,7 @@ namespace ConsoleApp18
 {
     class Gamer
     {
-        public static string[] GamerStatusArray = new string[] { "Win", "Lost", "Plays","BlackJeck" };
+        public static string[] GamerStatusArray = new string[] { "Win", "Many", "Plays","BlackJeck", "Enough"};
 
         public int GamerIndex = 0;
         public string GamerName = "Gamer";
