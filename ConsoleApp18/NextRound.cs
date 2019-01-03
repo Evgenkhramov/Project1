@@ -8,44 +8,72 @@ namespace ConsoleApp18
 {
     class NextRound
     {
-        public static void RoundForGamer(Gamer SomeGamer,  List<Card> newSomeDeck)
+        public static void RoundForGamer(Gamer SomeGamer, List<Card> newSomeDeck)
         {
-            if (SomeGamer.GamerStatus != "Lost"&& SomeGamer.GamerPoints<19)
+            if (SomeGamer.GamerIndex == 0)
             {
-                if (RandomAnswer() == 1)
+                if (SomeGamer.GamerPoints < 17)
                 {
-                    Console.WriteLine(SomeGamer.GamerName);
-                    var element = CardDeck.TakeSomeCard(newSomeDeck);
-                    var cardPoints = Cards.CardPointDict[element.CardNumber];
-                    SomeGamer.GamerPoints += cardPoints;
-                    Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.Suit, SomeGamer.GamerPoints);
-                    DoGamerStatus(SomeGamer);
-                    Console.WriteLine(SomeGamer.GamerStatus);
+                    DoPoints(SomeGamer, newSomeDeck);
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = Gamer.GamerStatusArray[4];
-
-                    Console.WriteLine(Gamer.GamerStatusArray[4]);
+                    SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Enough;
                 }
-            }    
-            
+            }
+            else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Gamer.GamerStatusEnum.Enough)
+            {
+                Console.WriteLine("Are you want card? y/n");
+                string answer = Console.ReadLine();
+                if (answer == "y")
+                {
+                    DoPoints(SomeGamer, newSomeDeck);
+                }
+                else
+                {
+                    SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Enough;
+                    Console.WriteLine(SomeGamer.GamerStatus);
+                }
+            }
+            else
+            {
+                if (SomeGamer.GamerStatus != Gamer.GamerStatusEnum.Enough)
+                {
+                    if (RandomAnswer() == 1)
+                    {
+                        DoPoints( SomeGamer, newSomeDeck);
+                    }
+                    else
+                    {
+                        SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Enough;
+                    }
+                }
+            }  
         }
         public static void DoGamerStatus(Gamer SomeGamer)
         {
             if (SomeGamer.GamerPoints < 21)
             {
-                SomeGamer.GamerStatus = Gamer.GamerStatusArray[2];
+                SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Plays;
             }
             else if (SomeGamer.GamerPoints == 21)
             {
-                SomeGamer.GamerStatus = Gamer.GamerStatusArray[3];
+                SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Blackjack;
             }
             else
             {
-                SomeGamer.GamerStatus = Gamer.GamerStatusArray[1];
-            }
-           
+                SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Many;
+            }    
+        }
+        public static void DoPoints(Gamer SomeGamer, List<Card> newSomeDeck)
+        {
+            Console.WriteLine(SomeGamer.GamerName);
+            var element = CardDeck.TakeSomeCard(newSomeDeck);
+            var cardPoints = Cards.CardPointDict[element.CardNumber];
+            SomeGamer.GamerPoints += cardPoints;
+            DoGamerStatus(SomeGamer);
+            Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.Suit, SomeGamer.GamerPoints);
+            Console.WriteLine(SomeGamer.GamerStatus);
         }
         public static int RandomAnswer()
         {

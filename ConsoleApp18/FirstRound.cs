@@ -10,7 +10,7 @@ namespace ConsoleApp18
     {
         public static void DoRound(Gamer[] GamerArray, List<Card> newSomeDeck)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < GamerArray.Length; i++)
             {
                 Console.WriteLine(GamerArray[i].GamerName);
                 var element = CardDeck.TakeSomeCard(newSomeDeck);

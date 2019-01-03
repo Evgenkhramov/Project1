@@ -8,13 +8,21 @@ namespace ConsoleApp18
 {
     class Gamer
     {
-        public static string[] GamerStatusArray = new string[] { "Win", "Many", "Plays","BlackJeck", "Enough"};
+         public enum GamerStatusEnum
+        {
+            Win,
+            Many,
+            Plays,
+            Blackjack,
+            Enough,
+            Lose
+        }
 
         public int GamerIndex = 0;
-        public string GamerName = "Gamer";
+        public string GamerName = "Gamer Bot";
         public int GamerRate = 0;
         public int GamerPoints = 0;
-        public string GamerStatus = GamerStatusArray[2];
+        public GamerStatusEnum GamerStatus = GamerStatusEnum.Plays;
         public int GamerWinCash = 0;
     }
 }
