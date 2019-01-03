@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class Gamer
+    class GamerBot
     {
         public static string[] GamerStatusArray = new string[] { "Win", "Many", "Plays", "BlackJeck", "Enough" };
 
-        public string GamerName = "Gamer";
+        public int GamerBotIndex = 0;
+        public string GamerName = "GamerBot";
         public int GamerRate = 0;
         public int GamerPoints = 0;
         public string GamerStatus = GamerStatusArray[2];
         public int GamerWinCash = 0;
-        public int HowManyRound = 0;
     }
 }

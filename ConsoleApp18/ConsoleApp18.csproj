@@ -43,11 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotRound.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardClass.cs" />
     <Compile Include="CardDeck.cs" />
-    <Compile Include="FirstRound.cs" />
+    <Compile Include="Diller.cs" />
+    <Compile Include="DillerRaund.cs" />
     <Compile Include="Gamer.cs" />
+    <Compile Include="GamerBot.cs" />
+    <Compile Include="GamerRound.cs" />
     <Compile Include="NextRound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
