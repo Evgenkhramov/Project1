@@ -8,7 +8,7 @@ namespace ConsoleApp18
 {
     class FirstRound
     {
-        public static void DoRound(Gamer[] GamerArray, List<Card> newSomeDeck)
+        public void DoRound(Gamer[] GamerArray, List<Card> newSomeDeck)
         {
             for (int i = 0; i < GamerArray.Length; i++)
             {

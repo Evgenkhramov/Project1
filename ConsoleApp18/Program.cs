@@ -36,9 +36,10 @@ namespace ConsoleApp18
             var newSomeDeck = CardDeck.Deck();
             GamerArray[1].GamerRate = int.Parse(Console.ReadLine());
             Console.WriteLine("******** New Cards! ********");
+            FirstRound OneGame = new FirstRound();
             for (int i = 0; i < 2; i++)
             {
-                FirstRound.DoRound(GamerArray, newSomeDeck);
+                OneGame.DoRound(GamerArray, newSomeDeck);
             }
             Console.WriteLine("******** Cards on Table! ********");
             for (int i = 0; i < GamerArray.Length; i++)
@@ -76,7 +77,7 @@ namespace ConsoleApp18
                     else if (GamerArray[i].GamerStatus == Gamer.GamerStatusEnum.Many || GamerArray[i].GamerStatus == Gamer.GamerStatusEnum.Enough && GamerArray[i].GamerPoints < GamerArray[0].GamerPoints)
                     {
                         GamerArray[i].GamerStatus = Gamer.GamerStatusEnum.Lose;
-                        GamerArray[0].GamerWinCash += GamerArray[i].GamerRate;
+                        GamerArray[0].GamerWinCash += GamerArray[i ].GamerRate;
                         GamerArray[i].GamerWinCash = 0;
                     }
                     else
