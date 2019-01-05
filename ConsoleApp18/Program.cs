@@ -12,11 +12,14 @@ namespace ConsoleApp18
 
         static void Main(string[] args)
         {
+            int maxRate = 50;
+            int maxBot = 6;
+            InputOutput IOThisGame = new InputOutput();
             Console.WriteLine("Game Start!");
             Console.WriteLine("Enter your name please:");
             string UserName = Console.ReadLine();
             Console.WriteLine("How many bots? (1-6)");
-            int HowMany = int.Parse(Console.ReadLine());
+            int HowMany = IOThisGame.IntInput(0,maxBot);
             int HowManyBots = HowMany + 2;
             Gamer[] GamerArray = new Gamer[HowManyBots];
             for (int i = 0; i < HowManyBots; i++)
@@ -32,9 +35,10 @@ namespace ConsoleApp18
 
 
             Console.WriteLine("******** New round Start! ********");
+           
             Console.WriteLine("Enter your Rate please from 1 $ to 50 $");
             var newSomeDeck = CardDeck.Deck();
-            GamerArray[1].GamerRate = int.Parse(Console.ReadLine());
+            GamerArray[1].GamerRate = IOThisGame.IntInput(1, maxRate);
             Console.WriteLine("******** New Cards! ********");
             FirstRound OneGame = new FirstRound();
             for (int i = 0; i < 2; i++)
