@@ -15,37 +15,27 @@ namespace ConsoleApp18
             int maxRate = 50;
             int maxBot = 6;
             InputOutput IOThisGame = new InputOutput();
-            Console.WriteLine("Game Start!");
-            Console.WriteLine("Enter your name please:");
+            IOThisGame.SomeOutput("Game Start!");
+            IOThisGame.SomeOutput("Enter your name please:");
             string UserName = Console.ReadLine();
-            Console.WriteLine("How many bots? (1-6)");
+            IOThisGame.SomeOutput("How many bots? (1-6)");
             int HowMany = IOThisGame.IntInput(0,maxBot);
             int HowManyBots = HowMany + 2;
-            Gamer[] GamerArray = new Gamer[HowManyBots];
-            for (int i = 0; i < HowManyBots; i++)
-            {
-                GamerArray[i] = new Gamer();
-                GamerArray[i].GamerIndex = i;
-                GamerArray[i].GamerRate = 10;
-            }
-            GamerArray[0].GamerName = "Casino";
-            GamerArray[0].GamerRate = 0;
-            GamerArray[1].GamerName = UserName;
-            
+            GamersArray ThisGameMembers = new GamersArray();
+            Gamer[] GamerArray = ThisGameMembers.DoGamerArray(HowManyBots,UserName);
 
+            IOThisGame.SomeOutput("New round Start!");
 
-            Console.WriteLine("******** New round Start! ********");
-           
-            Console.WriteLine("Enter your Rate please from 1 $ to 50 $");
+            IOThisGame.SomeOutput("Enter your Rate please from 1 $ to 50 $");
             var newSomeDeck = CardDeck.Deck();
             GamerArray[1].GamerRate = IOThisGame.IntInput(1, maxRate);
-            Console.WriteLine("******** New Cards! ********");
+            IOThisGame.SomeOutput(" New Cards! ");
             FirstRound OneGame = new FirstRound();
             for (int i = 0; i < 2; i++)
             {
                 OneGame.DoRound(GamerArray, newSomeDeck);
             }
-            Console.WriteLine("******** Cards on Table! ********");
+            IOThisGame.SomeOutput(" Cards on Table!");
             for (int i = 0; i < GamerArray.Length; i++)
             {
                 while (GamerArray[i].GamerStatus == Gamer.GamerStatusEnum.Plays)
@@ -98,13 +88,9 @@ namespace ConsoleApp18
 
                 }
             }
-            for (int i = 0; i < GamerArray.Length; i++)
-            {
-                Console.WriteLine("Gamer Name:{0} , Gamer Status: {1}, Gamer WinCash {2} ", GamerArray[i].GamerName, GamerArray[i].GamerStatus, GamerArray[i].GamerWinCash);
-            }
-
-
-
+            IOThisGame.FinishGameOutput(GamerArray);
+            Console.ReadLine();
+            
         }
     }
 }

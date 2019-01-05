@@ -48,6 +48,7 @@
     <Compile Include="CardDeck.cs" />
     <Compile Include="FirstRound.cs" />
     <Compile Include="Gamer.cs" />
+    <Compile Include="GamersArray.cs" />
     <Compile Include="InputOutput.cs" />
     <Compile Include="NextRound.cs" />
     <Compile Include="Program.cs" />

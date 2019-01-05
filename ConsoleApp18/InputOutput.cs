@@ -37,9 +37,18 @@ namespace ConsoleApp18
             while (allGood == 0);
             return validNumber;
         }
-        public void FinishGameOutput()
+        public void FinishGameOutput(Gamer[] GamerArr)
         {
-            Console.WriteLine();
+            for (int i = 0; i < GamerArr.Length; i++)
+            {
+                Console.WriteLine("Gamer Name: {0}, Gamer Points: {1} Gamer Status: {2}, Gamer Win Cash: {3}",
+                    GamerArr[i].GamerName, GamerArr[i].GamerPoints, GamerArr[i].GamerStatus, GamerArr[i].GamerWinCash);
+            }
+            
+        }
+        public void SomeOutput(string text)
+        {
+            Console.WriteLine("******{0}******", text);
         }
     }
 }

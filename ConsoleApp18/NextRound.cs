@@ -74,6 +74,7 @@ namespace ConsoleApp18
             DoGamerStatus(SomeGamer);
             Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.Suit, SomeGamer.GamerPoints);
             Console.WriteLine(SomeGamer.GamerStatus);
+            Console.WriteLine();
         }
         public static int RandomAnswer()
         {

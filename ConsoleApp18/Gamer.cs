@@ -24,5 +24,8 @@ namespace ConsoleApp18
         public int GamerPoints = 0;
         public GamerStatusEnum GamerStatus = GamerStatusEnum.Plays;
         public int GamerWinCash = 0;
+
+        
     }
+    
 }

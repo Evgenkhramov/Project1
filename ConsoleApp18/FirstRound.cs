@@ -16,7 +16,8 @@ namespace ConsoleApp18
                 var element = CardDeck.TakeSomeCard(newSomeDeck);
                 var cardPoints = Cards.CardPointDict[element.CardNumber];
                 GamerArray[i].GamerPoints += cardPoints;
-                Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.Suit, GamerArray[i].GamerPoints);
+
+                Console.WriteLine("{0},{1}, Total Points = {2}\n", element.CardNumber, element.Suit, GamerArray[i].GamerPoints);
             }
         }
     }
