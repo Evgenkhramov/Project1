@@ -41,7 +41,7 @@ namespace ConsoleApp18
             while (allGood == 0);
             return validNumber;
         }
-        public void FinishGameOutput(Gamer[] GamerArr)
+        public void ShowFinishResult(Gamer[] GamerArr)
         {
             for (int i = 0; i < GamerArr.Length; i++)
             {
@@ -50,7 +50,7 @@ namespace ConsoleApp18
             }
             
         }
-        public void SomeOutput(string text)
+        public void ShowSomeOutput(string text)
         {
             Console.WriteLine("******{0}******", text);
         }

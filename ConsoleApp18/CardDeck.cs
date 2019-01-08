@@ -8,7 +8,7 @@ namespace ConsoleApp18
 {
     class CardDeck
     {
-        public static List<Card> Deck()
+        public static List<Card> DoDeck()
         {
             var cards = new List<Card>(52);
             foreach (var suitName in Enum.GetNames(typeof(Suit)))

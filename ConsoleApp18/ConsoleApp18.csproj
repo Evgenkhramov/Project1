@@ -47,7 +47,9 @@
     <Compile Include="CardClass.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="FirstRound.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Gamer.cs" />
+    <Compile Include="GameResult.cs" />
     <Compile Include="GamersArray.cs" />
     <Compile Include="InputOutput.cs" />
     <Compile Include="NextRound.cs" />
@@ -56,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
