@@ -12,30 +12,31 @@ namespace ConsoleApp18
 
         static void Main(string[] args)
         {
+
             int maxRate = 50;
             int maxBot = 6;
-            InputOutput IOThisGame = new InputOutput();
-            IOThisGame.SomeOutput("Game Start!");
-            IOThisGame.SomeOutput("Enter your name please:");
-            string UserName = Console.ReadLine();
-            IOThisGame.SomeOutput("How many bots? (1-6)");
-            int HowMany = IOThisGame.IntInput(0,maxBot);
+            InputOutput inputOutput = new InputOutput();
+            inputOutput.SomeOutput("Game Start!");
+            inputOutput.SomeOutput("Enter your name please:");
+            string UserName = inputOutput.StringInput();
+            inputOutput.SomeOutput("How many bots? (1-6)");
+            int HowMany = inputOutput.IntInput(0,maxBot);
             int HowManyBots = HowMany + 2;
-            GamersArray ThisGameMembers = new GamersArray();
-            Gamer[] GamerArray = ThisGameMembers.DoGamerArray(HowManyBots,UserName);
+            GamersArray thisGameMembers = new GamersArray();
+            Gamer[] GamerArray = thisGameMembers.DoGamerArray(HowManyBots,UserName);
 
-            IOThisGame.SomeOutput("New round Start!");
+            inputOutput.SomeOutput("New round Start!");
 
-            IOThisGame.SomeOutput("Enter your Rate please from 1 $ to 50 $");
+            inputOutput.SomeOutput("Enter your Rate please from 1 $ to 50 $");
             var newSomeDeck = CardDeck.Deck();
-            GamerArray[1].GamerRate = IOThisGame.IntInput(1, maxRate);
-            IOThisGame.SomeOutput(" New Cards! ");
+            GamerArray[1].GamerRate = inputOutput.IntInput(1, maxRate);
+            inputOutput.SomeOutput(" New Cards! ");
             FirstRound OneGame = new FirstRound();
             for (int i = 0; i < 2; i++)
             {
                 OneGame.DoRound(GamerArray, newSomeDeck);
             }
-            IOThisGame.SomeOutput(" Cards on Table!");
+            inputOutput.SomeOutput(" Cards on Table!");
             for (int i = 0; i < GamerArray.Length; i++)
             {
                 while (GamerArray[i].GamerStatus == Gamer.GamerStatusEnum.Plays)
@@ -88,7 +89,7 @@ namespace ConsoleApp18
 
                 }
             }
-            IOThisGame.FinishGameOutput(GamerArray);
+            inputOutput.FinishGameOutput(GamerArray);
             Console.ReadLine();
             
         }

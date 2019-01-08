@@ -8,6 +8,10 @@ namespace ConsoleApp18
 {
     class InputOutput
     {
+        public string StringInput()
+        {
+            return Console.ReadLine();
+        }
         public int IntInput(int min, int max)
         {
             int validNumber = 0;
