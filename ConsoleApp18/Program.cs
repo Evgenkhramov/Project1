@@ -12,8 +12,8 @@ namespace ConsoleApp18
 
         static void Main(string[] args)
         {
-            Game someGame = new Game();
-            
+
+            Game someGame = new Game();    
             
         }
     }
