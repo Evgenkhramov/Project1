@@ -8,7 +8,9 @@ namespace ConsoleApp18
 {
     class RoundOfGame
     {
-        public static void DoRoundForGamer(Gamer SomeGamer, List<Card> newSomeDeck)
+        public static ConsoleInputOutput inputOutput = new ConsoleInputOutput();
+
+        public static void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
             if (SomeGamer.GamerIndex == 0)
             {
@@ -23,7 +25,10 @@ namespace ConsoleApp18
             }
             else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Gamer.GamerStatusEnum.Enough)
             {
-                Console.WriteLine("Are you want card? y/n");
+                
+                inputOutput.ShowSomeOutput("Now You have = "+ SomeGamer.GamerPoints);
+                inputOutput.ShowSomeOutput("Are you want card? y/n");
+
                 string answer = Console.ReadLine();
                 if (answer == "y")
                 {
@@ -65,14 +70,15 @@ namespace ConsoleApp18
                 SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Many;
             }    
         }
-        public static void DoPoints(Gamer SomeGamer, List<Card> newSomeDeck)
+        public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
+
             Console.WriteLine(SomeGamer.GamerName);
             var element = CardDeck.TakeSomeCard(newSomeDeck);
-            var cardPoints = Card.CardPointDict[element.CardNumber];
+            var cardPoints = OneCard.CardPointDict[element.CardNumber];
             SomeGamer.GamerPoints += cardPoints;
             DoGamerStatus(SomeGamer);
-            Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
+            inputOutput.ShowResult( element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
             Console.WriteLine(SomeGamer.GamerStatus);
             Console.WriteLine();
         }

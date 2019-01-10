@@ -28,7 +28,7 @@ namespace ConsoleApp18
             GameInfoModel gameInfo = new GameInfoModel();
             gameInfo.HowManyBots = HowManyBots;
             gameInfo.UserName = UserName;
-            gameInfo.GamerRate = someGameGetDate.GetGamerRate();
+            gameInfo.GamerRate = someGameGetDate.GetGamerRate ();
 
             return gameInfo;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class Card
+    class OneCard
     {
         public string CardSuit;
         public string CardNumber;
@@ -23,8 +23,8 @@ namespace ConsoleApp18
             Clubs = 4
         }
        
-            //public int Points;
-            //public string CardName;
+            public int Points;
+            public string CardName;
             public static Dictionary<string, int> CardPointDict = new Dictionary<string, int>
         {
             { "Ace",11},

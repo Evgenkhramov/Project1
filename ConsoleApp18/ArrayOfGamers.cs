@@ -10,18 +10,18 @@ namespace ConsoleApp18
     {
         public Gamer[] GenerateArrayOfGamers(int HowBots,string Name)
         {
-            Gamer[] GamerArray = new Gamer[HowBots];
+            Gamer[] gamerArray = new Gamer[HowBots];
             for (int i = 0; i < HowBots; i++)
             {
-                GamerArray[i] = new Gamer();
-                GamerArray[i].GamerIndex = i;
-                GamerArray[i].GamerRate = 10;
-                GamerArray[i].GamerName = "Bot " + i;
+                gamerArray[i] = new Gamer();
+                gamerArray[i].GamerIndex = i;
+                gamerArray[i].GamerRate = 10;
+                gamerArray[i].GamerName = "Bot " + i;
             }
-            GamerArray[0].GamerName = "Casino";
-            GamerArray[0].GamerRate = 0;
-            GamerArray[1].GamerName = Name;
-            return GamerArray;
+            gamerArray[0].GamerName = "Casino";
+            gamerArray[0].GamerRate = 0;
+            gamerArray[1].GamerName = Name;
+            return gamerArray;
         }
 
        

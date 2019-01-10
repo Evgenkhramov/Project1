@@ -8,14 +8,14 @@ namespace ConsoleApp18
 {
     class CardDeck
     {
-        public static List<Card> DoDeck()
+        public static List<OneCard> DoOneDeck()
         {
-            var cards = new List<Card>(52);
-            foreach (var suitName in Enum.GetNames(typeof(Card.Suit)))
+            var cards = new List<OneCard>(52);
+            foreach (var suitName in Enum.GetNames(typeof(OneCard.Suit)))
             {
-                foreach (KeyValuePair<string, int> keyValue in Card.CardPointDict)
+                foreach (KeyValuePair<string, int> keyValue in OneCard.CardPointDict)
                 {
-                    cards.Add(new Card
+                    cards.Add(new OneCard
                     {
                         CardSuit = suitName,
                         CardNumber = keyValue.Key
@@ -36,17 +36,17 @@ namespace ConsoleApp18
             else
                 return 0;
         }
-        public static Card TakeSomeCard(List<Card> NewDeck)
+        public static OneCard TakeSomeCard(List<OneCard> NewCardDeck)
         {
-            int IndexCard = CardRandomIndex(NewDeck.Count);
+            int IndexCard = CardRandomIndex(NewCardDeck.Count);
                 if (IndexCard >= 0)
             {
-                var SomeCard = NewDeck[IndexCard];
-                NewDeck.RemoveAt(IndexCard);
+                var SomeCard = NewCardDeck[IndexCard];
+                NewCardDeck.RemoveAt(IndexCard);
                 return SomeCard;
             }
             else
-                return NewDeck[0];
+                return NewCardDeck[0];
         }
     }
 }

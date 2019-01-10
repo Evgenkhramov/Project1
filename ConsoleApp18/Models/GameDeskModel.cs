@@ -9,6 +9,6 @@ namespace ConsoleApp18.Models
     class GameDeskModel
     {
         public Gamer[] PreparedGamerArray;
-        public List<Card> PrepareCardDeck;
+        public List<OneCard> PrepareCardDeck;
     }
 }

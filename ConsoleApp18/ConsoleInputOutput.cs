@@ -49,8 +49,12 @@ namespace ConsoleApp18
             {
                 Console.WriteLine("Gamer Name: {0}, Gamer Points: {1} Gamer Status: {2}, Gamer Win Cash: {3}",
                     GamerArr[i].GamerName, GamerArr[i].GamerPoints, GamerArr[i].GamerStatus, GamerArr[i].GamerWinCash);
-            }
-            
+            } 
+        }
+        public void ShowResult(string Number, string Suit, int Points)
+        {
+
+            Console.WriteLine("Card Points: {0}, Card Suit: {1} Gamer Points: {2}", Number, Suit, Points);
         }
 
         public void ShowSomeOutput(string text)

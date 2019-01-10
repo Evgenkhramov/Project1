@@ -9,9 +9,9 @@ namespace ConsoleApp18
     class PrepareGameDesk
     {
         public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
-        public List<Card> newSomeDeck = CardDeck.DoDeck();
+        public List<OneCard> newSomeDeck = CardDeck.DoOneDeck();
 
-        public List<Card> DistributionCards(Gamer[] GamerArray)
+        public List<OneCard> DistributionCards(Gamer[] GamerArray)
         {
             inputOutput.ShowSomeOutput(" New Cards! ");
             DistributionOfPlayingCards oneRound = new DistributionOfPlayingCards();
