@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class InputOutput
+    class ConsoleInputOutput
     {
         public string StringInput()
         {
             return Console.ReadLine();
         }
+
         public int IntInput(int min, int max)
         {
             int validNumber = 0;
@@ -41,6 +42,7 @@ namespace ConsoleApp18
             while (allGood == 0);
             return validNumber;
         }
+
         public void ShowFinishResult(Gamer[] GamerArr)
         {
             for (int i = 0; i < GamerArr.Length; i++)
@@ -50,6 +52,7 @@ namespace ConsoleApp18
             }
             
         }
+
         public void ShowSomeOutput(string text)
         {
             Console.WriteLine("******{0}******", text);

@@ -11,13 +11,13 @@ namespace ConsoleApp18
         public static List<Card> DoDeck()
         {
             var cards = new List<Card>(52);
-            foreach (var suitName in Enum.GetNames(typeof(Suit)))
+            foreach (var suitName in Enum.GetNames(typeof(Card.Suit)))
             {
-                foreach (KeyValuePair<string, int> keyValue in Cards.CardPointDict)
+                foreach (KeyValuePair<string, int> keyValue in Card.CardPointDict)
                 {
                     cards.Add(new Card
                     {
-                        Suit = suitName,
+                        CardSuit = suitName,
                         CardNumber = keyValue.Key
                     });
                 }

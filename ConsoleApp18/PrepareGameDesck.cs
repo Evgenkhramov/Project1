@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class PrepareGame
+    class PrepareGameDesk
     {
-        public InputOutput inputOutput = new InputOutput();
+        public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
         public List<Card> newSomeDeck = CardDeck.DoDeck();
 
-        public List<Card> DoPrepare(Gamer[] GamerArray)
+        public List<Card> DistributionCards(Gamer[] GamerArray)
         {
-           // List<Card> newSomeDeck = CardDeck.DoDeck();
-
             inputOutput.ShowSomeOutput(" New Cards! ");
-            FirstRound oneRound = new FirstRound();
+            DistributionOfPlayingCards oneRound = new DistributionOfPlayingCards();
 
             for (int i = 0; i < 2; i++)
             {
                 oneRound.DoRound(GamerArray, newSomeDeck);
             }
-            inputOutput.ShowSomeOutput(" Cards on Table!");
+            inputOutput.ShowSomeOutput(" Cards on Table! ");
             return newSomeDeck;
-        }
-
+        } 
     }
 }

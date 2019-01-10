@@ -44,25 +44,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
-    <Compile Include="CardClass.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="DateFromGamer.cs" />
-    <Compile Include="FirstRound.cs" />
+    <Compile Include="DistributionOfPlayingCards.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameProcess.cs" />
     <Compile Include="Gamer.cs" />
     <Compile Include="GameResult.cs" />
-    <Compile Include="GamersArray.cs" />
-    <Compile Include="InputOutput.cs" />
-    <Compile Include="NextRound.cs" />
-    <Compile Include="PrepareGame.cs" />
+    <Compile Include="ArrayOfGamers.cs" />
+    <Compile Include="ConsoleInputOutput.cs" />
+    <Compile Include="Models\GameDeskModel.cs" />
+    <Compile Include="Models\GameInfoModel.cs" />
+    <Compile Include="RoundOfGame.cs" />
+    <Compile Include="PrepareGameDesck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

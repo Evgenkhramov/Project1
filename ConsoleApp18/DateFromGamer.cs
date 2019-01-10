@@ -10,7 +10,7 @@ namespace ConsoleApp18
     {
         int maxRate = 50;
         int maxBot = 6;
-        public InputOutput inputOutput = new InputOutput();
+        public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
 
         public void ShowStart()
         {
@@ -23,14 +23,14 @@ namespace ConsoleApp18
             string UserName = inputOutput.StringInput();
             return UserName;
         }
-        public int HowBots()
+        public int GetNumberOfBots()
         {
             inputOutput.ShowSomeOutput("How many bots? (1-6)");
             int HowMany = inputOutput.IntInput(0, maxBot);
             int HowManyBots = HowMany + 2;
             return HowManyBots;
         }
-        public int GamerRate()
+        public int GetGamerRate()
         {
             inputOutput.ShowSomeOutput("Enter your Rate please from 1 $ to 50 $");
             int Rate = inputOutput.IntInput(1, maxRate);

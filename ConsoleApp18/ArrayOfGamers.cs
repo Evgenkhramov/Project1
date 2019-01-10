@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class GamersArray
+    class ArrayOfGamers
     {
-        public Gamer[] DoGamerArray(int HowBots,string Name)
+        public Gamer[] GenerateArrayOfGamers(int HowBots,string Name)
         {
             Gamer[] GamerArray = new Gamer[HowBots];
             for (int i = 0; i < HowBots; i++)
@@ -16,11 +16,14 @@ namespace ConsoleApp18
                 GamerArray[i] = new Gamer();
                 GamerArray[i].GamerIndex = i;
                 GamerArray[i].GamerRate = 10;
+                GamerArray[i].GamerName = "Bot " + i;
             }
             GamerArray[0].GamerName = "Casino";
             GamerArray[0].GamerRate = 0;
             GamerArray[1].GamerName = Name;
             return GamerArray;
         }
+
+       
     }
 }

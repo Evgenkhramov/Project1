@@ -62,17 +62,15 @@ namespace ConsoleApp18
                         if (SomeGamersArray[i].GamerPoints == 21)
                         {
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
-                            SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
+                            SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Blackjack;
                         }
                         else
                         {
                             SomeGamersArray[i].GamerWinCash = 0;
                             SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Lose;
+                            SomeGamersArray[0].GamerWinCash += SomeGamersArray[i].GamerRate;
                         }
-
-
                     }
-
                 }
             }
 

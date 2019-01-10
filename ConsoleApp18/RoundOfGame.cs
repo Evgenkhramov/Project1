@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class NextRound
+    class RoundOfGame
     {
-        public static void RoundForGamer(Gamer SomeGamer, List<Card> newSomeDeck)
+        public static void DoRoundForGamer(Gamer SomeGamer, List<Card> newSomeDeck)
         {
             if (SomeGamer.GamerIndex == 0)
             {
@@ -69,10 +69,10 @@ namespace ConsoleApp18
         {
             Console.WriteLine(SomeGamer.GamerName);
             var element = CardDeck.TakeSomeCard(newSomeDeck);
-            var cardPoints = Cards.CardPointDict[element.CardNumber];
+            var cardPoints = Card.CardPointDict[element.CardNumber];
             SomeGamer.GamerPoints += cardPoints;
             DoGamerStatus(SomeGamer);
-            Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.Suit, SomeGamer.GamerPoints);
+            Console.WriteLine("{0},{1}, Total Points = {2}", element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
             Console.WriteLine(SomeGamer.GamerStatus);
             Console.WriteLine();
         }
