@@ -44,10 +44,7 @@ namespace ConsoleApp18
                         SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
                         SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
                     }
-                    else
-                    {
-                        Console.WriteLine("Some troubles");
-                    }
+                    
                 }
                 else
                 {
@@ -59,7 +56,7 @@ namespace ConsoleApp18
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate;
                             SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
                         }
-                        if (SomeGamersArray[i].GamerPoints == 21)
+                        else if (SomeGamersArray[i].GamerPoints == 21)
                         {
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
                             SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Blackjack;

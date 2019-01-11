@@ -25,7 +25,6 @@ namespace ConsoleApp18
             }
             else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Gamer.GamerStatusEnum.Enough)
             {
-                
                 inputOutput.ShowSomeOutput("Now You have = "+ SomeGamer.GamerPoints);
                 inputOutput.ShowSomeOutput("Are you want card? y/n");
 
@@ -55,6 +54,7 @@ namespace ConsoleApp18
                 }
             }  
         }
+
         public static void DoGamerStatus(Gamer SomeGamer)
         {
             if (SomeGamer.GamerPoints < 21)
@@ -70,9 +70,9 @@ namespace ConsoleApp18
                 SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Many;
             }    
         }
+
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-
             Console.WriteLine(SomeGamer.GamerName);
             var element = CardDeck.TakeSomeCard(newSomeDeck);
             var cardPoints = OneCard.CardPointDict[element.CardNumber];
@@ -80,12 +80,14 @@ namespace ConsoleApp18
             DoGamerStatus(SomeGamer);
             inputOutput.ShowResult( element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
             Console.WriteLine(SomeGamer.GamerStatus);
-            Console.WriteLine();
+            inputOutput.ShowSomeOutput("");
         }
+
         public static int RandomAnswer()
         {
             Random rand = new Random(2);
             int rnd = rand.Next(2);
+
             return rnd;
         }
        

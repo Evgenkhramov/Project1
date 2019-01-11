@@ -11,21 +11,21 @@ namespace ConsoleApp18
     {
         public Game()
         {
-            var Date = GetGameInfo();
-            var Prepare =  PrepareGame(Date);
-            var GameProcess =  DoGame(Prepare);
+            GameInfoModel Date = GetGameInfo();
+            GameDeskModel Prepare =  PrepareGame(Date);
+            GameProcess GameProcess =  DoGame(Prepare);
             CheckResult(GameProcess);
         }
 
         //return model
         private GameInfoModel GetGameInfo()
         {
-            DateFromGamer someGameGetDate = new DateFromGamer();
+            var someGameGetDate = new DateFromGamer();
             someGameGetDate.ShowStart();
             string UserName = someGameGetDate.GetUserName();
             int HowManyBots = someGameGetDate.GetNumberOfBots();
 
-            GameInfoModel gameInfo = new GameInfoModel();
+            var gameInfo = new GameInfoModel();
             gameInfo.HowManyBots = HowManyBots;
             gameInfo.UserName = UserName;
             gameInfo.GamerRate = someGameGetDate.GetGamerRate ();
@@ -35,15 +35,15 @@ namespace ConsoleApp18
 
         private GameDeskModel PrepareGame(GameInfoModel gameInfo)
         {
-            ArrayOfGamers thisGameMembers = new ArrayOfGamers();
+            var thisGameMembers = new ArrayOfGamers();
             Gamer[] GamerArray = thisGameMembers.GenerateArrayOfGamers(gameInfo.HowManyBots, gameInfo.UserName);
             GamerArray[1].GamerRate = gameInfo.GamerRate;
 
-
-            PrepareGameDesk PrepareThisGame = new PrepareGameDesk();
-            GameDeskModel gameDeskModel = new GameDeskModel();
+            var PrepareThisGame = new PrepareGameDesk();
+            var gameDeskModel = new GameDeskModel();
             gameDeskModel.PrepareCardDeck = PrepareThisGame.DistributionCards(GamerArray);
             gameDeskModel.PreparedGamerArray = GamerArray;
+
             return gameDeskModel;
         }
 
@@ -56,7 +56,7 @@ namespace ConsoleApp18
                     RoundOfGame.DoRoundForGamer(gameDeskModel.PreparedGamerArray[i], gameDeskModel.PrepareCardDeck);
                 }
             }
-            GameProcess gameProcessResult = new GameProcess();
+            var gameProcessResult = new GameProcess();
             gameProcessResult.AfterGameArray = gameDeskModel.PreparedGamerArray;
 
             return gameProcessResult;
@@ -64,11 +64,12 @@ namespace ConsoleApp18
 
         private void CheckResult(GameProcess result)
         {
-            GameResult gameResult = new GameResult();
+            var gameResult = new GameResult();
             gameResult.DoFinishResult(result.AfterGameArray);
-            ConsoleInputOutput inputOutput = new ConsoleInputOutput();
+            var inputOutput = new ConsoleInputOutput();
             inputOutput.ShowFinishResult(result.AfterGameArray);
-            Console.ReadLine();
+
+            inputOutput.StringInput();
         }
 
 

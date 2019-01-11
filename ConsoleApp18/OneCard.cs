@@ -23,8 +23,6 @@ namespace ConsoleApp18
             Clubs = 4
         }
        
-            public int Points;
-            public string CardName;
             public static Dictionary<string, int> CardPointDict = new Dictionary<string, int>
         {
             { "Ace",11},
@@ -40,8 +38,6 @@ namespace ConsoleApp18
             { "Four",4},
             { "Three",3},
             { "Two",2}
-
-        };
-        
+        };  
     }
 }

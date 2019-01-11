@@ -14,8 +14,8 @@ namespace ConsoleApp18
             for (int i = 0; i < GamerArray.Length; i++)
             {
                 inputOutput.ShowSomeOutput(GamerArray[i].GamerName);
-                var element = CardDeck.TakeSomeCard(newSomeDeck);
-                var cardPoints = OneCard.CardPointDict[element.CardNumber];
+                OneCard element = CardDeck.TakeSomeCard(newSomeDeck);
+                int cardPoints = OneCard.CardPointDict[element.CardNumber];
                 GamerArray[i].GamerPoints += cardPoints;
                 inputOutput.ShowResult( element.CardNumber, element.CardSuit, GamerArray[i].GamerPoints);
             }

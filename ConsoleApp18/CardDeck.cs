@@ -25,28 +25,30 @@ namespace ConsoleApp18
 
             return cards;
         }
+
         public static int CardRandomIndex(int DeckLength)
         {
             if (DeckLength > 0)
             {
-                Random rnd = new Random();
-                int value = rnd.Next(0, DeckLength);
+                var random = new Random();
+                int value = random.Next(0, DeckLength);
                 return value;
             }
-            else
-                return 0;
+
+            return 0;
         }
+
         public static OneCard TakeSomeCard(List<OneCard> NewCardDeck)
         {
-            int IndexCard = CardRandomIndex(NewCardDeck.Count);
-                if (IndexCard >= 0)
+            int indexCard = CardRandomIndex(NewCardDeck.Count);
+            if (indexCard >= 0)
             {
-                var SomeCard = NewCardDeck[IndexCard];
-                NewCardDeck.RemoveAt(IndexCard);
+                var SomeCard = NewCardDeck[indexCard];
+                NewCardDeck.RemoveAt(indexCard);
                 return SomeCard;
             }
-            else
-                return NewCardDeck[0];
+
+            return NewCardDeck[0];
         }
     }
 }

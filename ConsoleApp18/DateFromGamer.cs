@@ -20,22 +20,25 @@ namespace ConsoleApp18
 
         public string GetUserName()
         {
-            string UserName = inputOutput.StringInput();
-            return UserName;
+            string userName = inputOutput.StringInput();
+
+            return userName;
         }
         public int GetNumberOfBots()
         {
             inputOutput.ShowSomeOutput("How many bots? (1-6)");
-            int HowMany = inputOutput.IntInput(0, maxBot);
-            int HowManyBots = HowMany + 2;
-            return HowManyBots;
+            int howMany = inputOutput.IntInput(0, maxBot);
+            int howManyBots = howMany + 2;
+
+            return howManyBots;
         }
         public int GetGamerRate()
         {
             inputOutput.ShowSomeOutput("Enter your Rate please from 1 $ to 50 $");
-            int Rate = inputOutput.IntInput(1, maxRate);
+            int rate = inputOutput.IntInput(1, maxRate);
             inputOutput.ShowSomeOutput("New round Start!");
-            return Rate;
+
+            return rate;
         }       
     }
 }
