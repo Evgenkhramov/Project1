@@ -8,14 +8,12 @@ namespace ConsoleApp18
 {
     class DateFromGamer
     {
-        int maxRate = 50;
-        int maxBot = 6;
         public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
 
         public void ShowStart()
         {
-            inputOutput.ShowSomeOutput("Game Start!");
-            inputOutput.ShowSomeOutput("Enter your name please:");
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.StartGame);
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.EnterName);
         }
 
         public string GetUserName()
@@ -27,7 +25,7 @@ namespace ConsoleApp18
         public int GetNumberOfBots()
         {
             inputOutput.ShowSomeOutput("How many bots? (1-6)");
-            int howMany = inputOutput.IntInput(0, maxBot);
+            int howMany = inputOutput.IntInput(0, Settings.MaxBots);
             int howManyBots = howMany + 2;
 
             return howManyBots;
@@ -35,7 +33,7 @@ namespace ConsoleApp18
         public int GetGamerRate()
         {
             inputOutput.ShowSomeOutput("Enter your Rate please from 1 $ to 50 $");
-            int rate = inputOutput.IntInput(1, maxRate);
+            int rate = inputOutput.IntInput(1, Settings.MaxRateForGamer);
             inputOutput.ShowSomeOutput("New round Start!");
 
             return rate;

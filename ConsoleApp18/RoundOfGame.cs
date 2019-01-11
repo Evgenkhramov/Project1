@@ -20,10 +20,10 @@ namespace ConsoleApp18
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Enough;
+                    SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
                 }
             }
-            else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Gamer.GamerStatusEnum.Enough)
+            else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Enums.GamerStatusEnum.Enough)
             {
                 inputOutput.ShowSomeOutput("Now You have = "+ SomeGamer.GamerPoints);
                 inputOutput.ShowSomeOutput("Are you want card? y/n");
@@ -35,13 +35,13 @@ namespace ConsoleApp18
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Enough;
+                    SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
                     Console.WriteLine(SomeGamer.GamerStatus);
                 }
             }
             else
             {
-                if (SomeGamer.GamerStatus != Gamer.GamerStatusEnum.Enough)
+                if (SomeGamer.GamerStatus != Enums.GamerStatusEnum.Enough)
                 {
                     if (RandomAnswer() == 1)
                     {
@@ -49,7 +49,7 @@ namespace ConsoleApp18
                     }
                     else
                     {
-                        SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Enough;
+                        SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
                     }
                 }
             }  
@@ -59,15 +59,15 @@ namespace ConsoleApp18
         {
             if (SomeGamer.GamerPoints < 21)
             {
-                SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Plays;
+                SomeGamer.GamerStatus = Enums.GamerStatusEnum.Plays;
             }
             else if (SomeGamer.GamerPoints == 21)
             {
-                SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Blackjack;
+                SomeGamer.GamerStatus = Enums.GamerStatusEnum.Blackjack;
             }
             else
             {
-                SomeGamer.GamerStatus = Gamer.GamerStatusEnum.Many;
+                SomeGamer.GamerStatus = Enums.GamerStatusEnum.Many;
             }    
         }
 

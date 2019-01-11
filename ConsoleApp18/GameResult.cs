@@ -12,59 +12,59 @@ namespace ConsoleApp18
         {
             for (int i = 1; i < SomeGamersArray.Length; i++)
             {
-                if (SomeGamersArray[0].GamerStatus == Gamer.GamerStatusEnum.Blackjack)
+                if (SomeGamersArray[0].GamerStatus == Enums.GamerStatusEnum.Blackjack)
                 {
-                    if (SomeGamersArray[i].GamerStatus == Gamer.GamerStatusEnum.Blackjack)
+                    if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Blackjack)
                     {
-                        SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
+                        SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate;
                     }
                     else
                     {
-                        SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Lose;
+                        SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Lose;
                         SomeGamersArray[0].GamerWinCash += SomeGamersArray[i].GamerRate;
                     }
 
                 }
-                else if (SomeGamersArray[0].GamerStatus == Gamer.GamerStatusEnum.Enough)
+                else if (SomeGamersArray[0].GamerStatus == Enums.GamerStatusEnum.Enough)
                 {
-                    if (SomeGamersArray[i].GamerStatus == Gamer.GamerStatusEnum.Blackjack || SomeGamersArray[i].GamerStatus == Gamer.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints > SomeGamersArray[0].GamerPoints)
+                    if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Blackjack || SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints > SomeGamersArray[0].GamerPoints)
                     {
-                        SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
+                        SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
                     }
-                    else if (SomeGamersArray[i].GamerStatus == Gamer.GamerStatusEnum.Many || SomeGamersArray[i].GamerStatus == Gamer.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints < SomeGamersArray[0].GamerPoints && SomeGamersArray[0].GamerPoints < 21)
+                    else if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Many || SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints < SomeGamersArray[0].GamerPoints && SomeGamersArray[0].GamerPoints < 21)
                     {
-                        SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Lose;
+                        SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Lose;
                         SomeGamersArray[0].GamerWinCash += SomeGamersArray[i].GamerRate;
                         SomeGamersArray[i].GamerWinCash = 0;
                     }
-                    else if (SomeGamersArray[i].GamerStatus == Gamer.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints <= 21 && SomeGamersArray[0].GamerPoints < SomeGamersArray[i].GamerPoints)
+                    else if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints <= 21 && SomeGamersArray[0].GamerPoints < SomeGamersArray[i].GamerPoints)
                     {
-                        SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
+                        SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
                     }
                     
                 }
                 else
                 {
-                    if (SomeGamersArray[0].GamerStatus == Gamer.GamerStatusEnum.Many)
+                    if (SomeGamersArray[0].GamerStatus == Enums.GamerStatusEnum.Many)
                     {
 
                         if (SomeGamersArray[i].GamerPoints < 20)
                         {
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate;
-                            SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Win;
+                            SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         }
                         else if (SomeGamersArray[i].GamerPoints == 21)
                         {
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
-                            SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Blackjack;
+                            SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Blackjack;
                         }
                         else
                         {
                             SomeGamersArray[i].GamerWinCash = 0;
-                            SomeGamersArray[i].GamerStatus = Gamer.GamerStatusEnum.Lose;
+                            SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Lose;
                             SomeGamersArray[0].GamerWinCash += SomeGamersArray[i].GamerRate;
                         }
                     }

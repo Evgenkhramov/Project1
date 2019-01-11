@@ -43,9 +43,10 @@ namespace ConsoleApp18
             int indexCard = CardRandomIndex(NewCardDeck.Count);
             if (indexCard >= 0)
             {
-                var SomeCard = NewCardDeck[indexCard];
+                var someCard = NewCardDeck[indexCard];
                 NewCardDeck.RemoveAt(indexCard);
-                return SomeCard;
+
+                return someCard;
             }
 
             return NewCardDeck[0];

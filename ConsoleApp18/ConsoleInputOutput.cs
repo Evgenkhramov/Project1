@@ -52,6 +52,7 @@ namespace ConsoleApp18
                     GamerArr[i].GamerName, GamerArr[i].GamerPoints, GamerArr[i].GamerStatus, GamerArr[i].GamerWinCash);
             }
         }
+
         public void ShowResult(string Number, string Suit, int Points)
         {
 

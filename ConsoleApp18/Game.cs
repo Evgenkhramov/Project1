@@ -51,7 +51,7 @@ namespace ConsoleApp18
         {
             for (int i = 0; i < gameDeskModel.PreparedGamerArray.Length; i++)
             {
-                while (gameDeskModel.PreparedGamerArray[i].GamerStatus == Gamer.GamerStatusEnum.Plays)
+                while (gameDeskModel.PreparedGamerArray[i].GamerStatus == Enums.GamerStatusEnum.Plays)
                 {
                     RoundOfGame.DoRoundForGamer(gameDeskModel.PreparedGamerArray[i], gameDeskModel.PrepareCardDeck);
                 }

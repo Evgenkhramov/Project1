@@ -15,10 +15,10 @@ namespace ConsoleApp18
             {
                 gamerArray[i] = new Gamer();
                 gamerArray[i].GamerIndex = i;
-                gamerArray[i].GamerRate = 10;
-                gamerArray[i].GamerName = $"Bot {i} ";
+                gamerArray[i].GamerRate = Settings.BotRate;
+                gamerArray[i].GamerName = TextCuts.TextCuts.BotName + i;
             }
-            gamerArray[0].GamerName = "Casino";
+            gamerArray[0].GamerName = TextCuts.TextCuts.CasinoName;
             gamerArray[0].GamerRate = 0;
             gamerArray[1].GamerName = Name;
 
