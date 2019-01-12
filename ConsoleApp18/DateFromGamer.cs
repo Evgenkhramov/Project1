@@ -24,7 +24,7 @@ namespace ConsoleApp18
         }
         public int GetNumberOfBots()
         {
-            inputOutput.ShowSomeOutput("How many bots? (1-6)");
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.HowManyBots, number:Settings.MaxBots);
             int howMany = inputOutput.IntInput(0, Settings.MaxBots);
             int howManyBots = howMany + 2;
 
@@ -32,12 +32,12 @@ namespace ConsoleApp18
         }
         public int GetGamerRate()
         {
-            inputOutput.ShowSomeOutput("Enter your Rate please from 1 $ to 50 $");
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
             int rate = inputOutput.IntInput(1, Settings.MaxRateForGamer);
-            inputOutput.ShowSomeOutput("New round Start!");
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.ShowStartRaund);
 
             return rate;
-        }       
+        }
     }
 }
 

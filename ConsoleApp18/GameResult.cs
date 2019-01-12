@@ -33,13 +33,13 @@ namespace ConsoleApp18
                         SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
                     }
-                    else if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Many || SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints < SomeGamersArray[0].GamerPoints && SomeGamersArray[0].GamerPoints < 21)
+                    if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Many || SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints < SomeGamersArray[0].GamerPoints && SomeGamersArray[0].GamerPoints < 21)
                     {
                         SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Lose;
                         SomeGamersArray[0].GamerWinCash += SomeGamersArray[i].GamerRate;
                         SomeGamersArray[i].GamerWinCash = 0;
                     }
-                    else if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints <= 21 && SomeGamersArray[0].GamerPoints < SomeGamersArray[i].GamerPoints)
+                    if (SomeGamersArray[i].GamerStatus == Enums.GamerStatusEnum.Enough && SomeGamersArray[i].GamerPoints <= 21 && SomeGamersArray[0].GamerPoints < SomeGamersArray[i].GamerPoints)
                     {
                         SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
@@ -56,7 +56,7 @@ namespace ConsoleApp18
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate;
                             SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Win;
                         }
-                        else if (SomeGamersArray[i].GamerPoints == 21)
+                        if (SomeGamersArray[i].GamerPoints == 21)
                         {
                             SomeGamersArray[i].GamerWinCash = SomeGamersArray[i].GamerRate * 3 / 2;
                             SomeGamersArray[i].GamerStatus = Enums.GamerStatusEnum.Blackjack;

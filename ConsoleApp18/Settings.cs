@@ -12,6 +12,7 @@ namespace ConsoleApp18
         public static readonly int BlackJeckPoints = 21;
         public static readonly int MinimumCasinoPointsLevel = 17;
         public static readonly int MaxRateForGamer = 50;
+        public static readonly int MinRateForGamer = 1;
         public static readonly int MaxBots = 6;
 
 

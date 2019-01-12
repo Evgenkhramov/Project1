@@ -14,14 +14,14 @@ namespace ConsoleApp18
 
         public List<OneCard> DistributionCards(Gamer[] GamerArray)
         {
-            inputOutput.ShowSomeOutput(" New Cards! ");
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
 
             for (int i = 0; i < 2; i++)
             {
                 oneRound.DoRound(GamerArray, newSomeDeck);
             }
-            inputOutput.ShowSomeOutput(" Cards on Table! ");
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.CardsOnTable);
 
             return newSomeDeck;
         } 

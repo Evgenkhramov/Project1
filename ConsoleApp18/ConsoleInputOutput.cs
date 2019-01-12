@@ -30,12 +30,12 @@ namespace ConsoleApp18
                     else
                     {
                         allGood = 0;
-                        Console.WriteLine("Please, min = {0} and max = {1}, enter a valid number ", min, max);
+                        Console.WriteLine(TextCuts.TextCuts.EnterValidNumber);
                     }
                 }
                 catch
                 {
-                    Console.WriteLine("It is not a number, enter a valid number");
+                    Console.WriteLine(TextCuts.TextCuts.NotValidNumber);
                     allGood = 0;
                 }
             }
@@ -48,7 +48,7 @@ namespace ConsoleApp18
         {
             for (int i = 0; i < GamerArr.Length; i++)
             {
-                Console.WriteLine("Gamer Name: {0}, Gamer Points: {1} Gamer Status: {2}, Gamer Win Cash: {3}",
+                Console.WriteLine(TextCuts.TextCuts.ShowFinishResultByConsole,
                     GamerArr[i].GamerName, GamerArr[i].GamerPoints, GamerArr[i].GamerStatus, GamerArr[i].GamerWinCash);
             }
         }
@@ -56,12 +56,22 @@ namespace ConsoleApp18
         public void ShowResult(string Number, string Suit, int Points)
         {
 
-            Console.WriteLine("Card Points: {0}, Card Suit: {1} Gamer Points: {2}", Number, Suit, Points);
+            Console.WriteLine(TextCuts.TextCuts.ShowResultByConsole, Number, Suit, Points);
+        }
+
+        public void ShowSomeOutput(string text, int number)
+        {
+            Console.WriteLine(TextCuts.TextCuts.ShowSomeText,text, number);
         }
 
         public void ShowSomeOutput(string text)
         {
-            Console.WriteLine("******{0}******", text);
+            Console.WriteLine(TextCuts.TextCuts.ShowSomeText, text);
+        }
+
+        public void ShowSomeOutput(string text, int number1, int number2)
+        {
+            Console.WriteLine(TextCuts.TextCuts.ShowSomeText, text, number1, number2);
         }
     }
 }
