@@ -16,8 +16,8 @@ namespace ConsoleApp18.TextCuts
         public static readonly string NotValidNumber = "It is not a number, enter a valid number";
         public static readonly string EnterValidNumber = "Please, min = {0} and max = {1}, enter a valid number ";
         public static readonly string EnterValidRate = "Enter your Rate please from {0} $ to {1} $";
-        public static readonly string ShowFinishResultByConsole = "Gamer Name: {0}, Gamer Points: {1}Gamer Status: {2}, Gamer Win Cash: {3}";
-        public static readonly string ShowResultByConsole = "Card Points: {0}, Card Suit: {1} Gamer Points: {2}";
+        public static readonly string ShowFinishResultByConsole = "Gamer Name: {0}, Gamer Points: {1}, Gamer Status: {2}, Gamer Win Cash: {3}";
+        public static readonly string ShowResultByConsole = "Card Points: {0}, Card Suit: {1}, Gamer Points: {2}";
         public static readonly string ShowSomeText = "******{0}******";
         public static readonly string ShowStartRaund = "New round Start!";
         public static readonly string NewCards = "New Cards!";

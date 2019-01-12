@@ -30,7 +30,7 @@ namespace ConsoleApp18
                     else
                     {
                         allGood = 0;
-                        Console.WriteLine(TextCuts.TextCuts.EnterValidNumber);
+                        Console.WriteLine(TextCuts.TextCuts.EnterValidNumber,min,max);
                     }
                 }
                 catch
@@ -59,19 +59,21 @@ namespace ConsoleApp18
             Console.WriteLine(TextCuts.TextCuts.ShowResultByConsole, Number, Suit, Points);
         }
 
-        public void ShowSomeOutput(string text, int number)
-        {
-            Console.WriteLine(TextCuts.TextCuts.ShowSomeText,text, number);
-        }
-
         public void ShowSomeOutput(string text)
         {
             Console.WriteLine(TextCuts.TextCuts.ShowSomeText, text);
         }
 
+        public void ShowSomeOutput(string text, int number )
+        {
+             
+            Console.WriteLine(text, number);
+        }
+
         public void ShowSomeOutput(string text, int number1, int number2)
         {
-            Console.WriteLine(TextCuts.TextCuts.ShowSomeText, text, number1, number2);
+             
+            Console.WriteLine(text, number1,number2);
         }
     }
 }

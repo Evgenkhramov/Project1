@@ -24,7 +24,7 @@ namespace ConsoleApp18
         }
         public int GetNumberOfBots()
         {
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.HowManyBots, number:Settings.MaxBots);
+            inputOutput.ShowSomeOutput(TextCuts.TextCuts.HowManyBots,Settings.MaxBots);
             int howMany = inputOutput.IntInput(0, Settings.MaxBots);
             int howManyBots = howMany + 2;
 
