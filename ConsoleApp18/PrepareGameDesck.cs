@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace ConsoleApp18
 {
     class PrepareGameDesk
-
     {
         public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
         public List<OneCard> newSomeDeck = CardDeck.DoOneDeck();

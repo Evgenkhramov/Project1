@@ -16,3 +16,4 @@ namespace ConsoleApp18
         public int GamerWinCash = 0;
     }
 }
+// Вопрос с правильным именование (Заглавная буква?)

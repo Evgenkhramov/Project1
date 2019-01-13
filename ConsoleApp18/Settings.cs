@@ -8,6 +8,7 @@ namespace ConsoleApp18
 {
     class Settings
     {
+        //что с именованием?
         public static readonly int BotRate = 10;
         public static readonly int BlackJeckPoints = 21;
         public static readonly int MinimumCasinoPointsLevel = 17;

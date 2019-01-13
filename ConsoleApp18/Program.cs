@@ -9,12 +9,9 @@ namespace ConsoleApp18
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-
-            Game someGame = new Game();    
-            
+            Game someGame = new Game();   
         }
     }
 }

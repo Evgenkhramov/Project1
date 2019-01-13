@@ -22,6 +22,10 @@ namespace ConsoleApp18.TextCuts
         public static readonly string ShowStartRaund = "New round Start!";
         public static readonly string NewCards = "New Cards!";
         public static readonly string CardsOnTable = "Cards On Table!";
+        public static readonly string NowYouHave = "Now You have = ";
+        public static readonly string DoYouWantCard = "Do you want card? y/n";
+        public static readonly string y = "y";
+
 
     }
 }

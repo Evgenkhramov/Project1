@@ -12,9 +12,9 @@ namespace ConsoleApp18
 
         public static void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-            if (SomeGamer.GamerIndex == 0)
+            if (SomeGamer.GamerName == "Casino")
             {
-                if (SomeGamer.GamerPoints < 17)
+                if (SomeGamer.GamerPoints < Settings.MinimumCasinoPointsLevel)
                 {
                     DoPoints(SomeGamer, newSomeDeck);
                 }
@@ -25,11 +25,11 @@ namespace ConsoleApp18
             }
             else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Enums.GamerStatusEnum.Enough)
             {
-                inputOutput.ShowSomeOutput("Now You have = "+ SomeGamer.GamerPoints);
-                inputOutput.ShowSomeOutput("Are you want card? y/n");
+                inputOutput.ShowSomeOutput(TextCuts.TextCuts.NowYouHave + SomeGamer.GamerPoints);
+                inputOutput.ShowSomeOutput(TextCuts.TextCuts.DoYouWantCard);
 
                 string answer = Console.ReadLine();
-                if (answer == "y")
+                if (answer == TextCuts.TextCuts.y)
                 {
                     DoPoints(SomeGamer, newSomeDeck);
                 }
@@ -45,30 +45,30 @@ namespace ConsoleApp18
                 {
                     if (RandomAnswer() == 1)
                     {
-                        DoPoints( SomeGamer, newSomeDeck);
+                        DoPoints(SomeGamer, newSomeDeck);
                     }
                     else
                     {
                         SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
                     }
                 }
-            }  
+            }
         }
 
         public static void DoGamerStatus(Gamer SomeGamer)
         {
-            if (SomeGamer.GamerPoints < 21)
+            if (SomeGamer.GamerPoints < Settings.BlackJeckPoints)
             {
                 SomeGamer.GamerStatus = Enums.GamerStatusEnum.Plays;
             }
-            else if (SomeGamer.GamerPoints == 21)
+            else if (SomeGamer.GamerPoints == Settings.BlackJeckPoints)
             {
                 SomeGamer.GamerStatus = Enums.GamerStatusEnum.Blackjack;
             }
             else
             {
                 SomeGamer.GamerStatus = Enums.GamerStatusEnum.Many;
-            }    
+            }
         }
 
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
@@ -78,19 +78,19 @@ namespace ConsoleApp18
             var cardPoints = OneCard.CardPointDict[element.CardNumber];
             SomeGamer.GamerPoints += cardPoints;
             DoGamerStatus(SomeGamer);
-            inputOutput.ShowResult( element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
+            inputOutput.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
             Console.WriteLine(SomeGamer.GamerStatus);
             inputOutput.ShowSomeOutput("");
         }
 
         public static int RandomAnswer()
         {
-            Random rand = new Random(2);
-            int rnd = rand.Next(2);
+            Random random = new Random(2);
+            int randomNumber = random.Next(2);
 
-            return rnd;
+            return randomNumber;
         }
-       
+
 
     }
 }
