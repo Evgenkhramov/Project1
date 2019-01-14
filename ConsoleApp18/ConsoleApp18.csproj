@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\Enums.cs" />
+    <Compile Include="Enums\SuitEnums.cs" />
+    <Compile Include="Enums\GamerStatusEnum.cs" />
     <Compile Include="OneCard.cs" />
     <Compile Include="CardDeck.cs" />
     <Compile Include="DateFromGamer.cs" />

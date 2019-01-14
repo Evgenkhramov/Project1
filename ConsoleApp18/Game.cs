@@ -9,6 +9,8 @@ namespace ConsoleApp18
 {
     class Game
     {
+        Settings game = new Settings();
+
         public Game()
         {
             GameInfoModel Date = GetGameInfo();

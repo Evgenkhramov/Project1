@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class Settings
+    public class Settings
     {
-        //что с именованием?
-        public static readonly int BotRate = 10;
-        public static readonly int BlackJeckPoints = 21;
-        public static readonly int MinimumCasinoPointsLevel = 17;
-        public static readonly int MaxRateForGamer = 50;
-        public static readonly int MinRateForGamer = 1;
-        public static readonly int MaxBots = 6;
+        public static int BotRate { get; private set; }
+        public static int BlackJeckPoints { get; private set; }
+        public static int MinimumCasinoPointsLevel { get; private set; }
+        public static int MaxRateForGamer { get; private set; }
+        public static int MinRateForGamer { get; private set; }
+        public static int MaxBots { get; private set; }
+
+        public Settings()
+        {
+            BotRate = 10;
+            BlackJeckPoints = 21;
+            MinimumCasinoPointsLevel = 17;
+            MaxRateForGamer = 50;
+            MinRateForGamer = 1;
+            MaxBots = 6;
+        }
     }
 }

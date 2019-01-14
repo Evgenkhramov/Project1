@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class Gamer
+    public class Gamer
     {
         public int GamerIndex = 0;
         public string GamerName = TextCuts.TextCuts.BotName;

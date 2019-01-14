@@ -11,7 +11,7 @@ namespace ConsoleApp18
         public static List<OneCard> DoOneDeck()
         {
             var cards = new List<OneCard>(52);
-            foreach (var suitName in Enum.GetNames(typeof(Enums.Suit)))
+            foreach (var suitName in Enum.GetNames(typeof(Enums.SuitEnums)))
             {
                 foreach (KeyValuePair<string, int> keyValue in OneCard.CardPointDict)
                 {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp18.Enums;
+
 
 namespace ConsoleApp18
 {
@@ -20,10 +22,10 @@ namespace ConsoleApp18
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
+                    SomeGamer.GamerStatus = GamerStatusEnum.Enough;
                 }
             }
-            else if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != Enums.GamerStatusEnum.Enough)
+            if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != GamerStatusEnum.Enough)
             {
                 inputOutput.ShowSomeOutput(TextCuts.TextCuts.NowYouHave + SomeGamer.GamerPoints);
                 inputOutput.ShowSomeOutput(TextCuts.TextCuts.DoYouWantCard);
@@ -35,13 +37,13 @@ namespace ConsoleApp18
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
+                    SomeGamer.GamerStatus = GamerStatusEnum.Enough;
                     Console.WriteLine(SomeGamer.GamerStatus);
                 }
             }
             else
             {
-                if (SomeGamer.GamerStatus != Enums.GamerStatusEnum.Enough)
+                if (SomeGamer.GamerStatus != GamerStatusEnum.Enough)
                 {
                     if (GetRandom() == 1)
                     {
@@ -49,7 +51,7 @@ namespace ConsoleApp18
                     }
                     else
                     {
-                        SomeGamer.GamerStatus = Enums.GamerStatusEnum.Enough;
+                        SomeGamer.GamerStatus = GamerStatusEnum.Enough;
                     }
                 }
             }
@@ -59,21 +61,21 @@ namespace ConsoleApp18
         {
             if (SomeGamer.GamerPoints < Settings.BlackJeckPoints)
             {
-                SomeGamer.GamerStatus = Enums.GamerStatusEnum.Plays;
+                SomeGamer.GamerStatus = GamerStatusEnum.Plays;
             }
             else if (SomeGamer.GamerPoints == Settings.BlackJeckPoints)
             {
-                SomeGamer.GamerStatus = Enums.GamerStatusEnum.Blackjack;
+                SomeGamer.GamerStatus = GamerStatusEnum.Blackjack;
             }
             else
             {
-                SomeGamer.GamerStatus = Enums.GamerStatusEnum.Many;
+                SomeGamer.GamerStatus = GamerStatusEnum.Many;
             }
         }
 
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-            Console.WriteLine(SomeGamer.GamerName);
+            inputOutput.ShowSomeOutput(SomeGamer.GamerName);
             var element = CardDeck.GetSomeCard(newSomeDeck);
             var cardPoints = OneCard.CardPointDict[element.CardNumber];
             SomeGamer.GamerPoints += cardPoints;

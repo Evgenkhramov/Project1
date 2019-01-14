@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
-    class OneCard
+    public class OneCard
     {
         // вопрос с правильным именованием
         public string CardSuit;
