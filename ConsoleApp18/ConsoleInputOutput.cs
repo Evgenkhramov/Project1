@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJackProject.Constanta;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class ConsoleInputOutput
     {
@@ -30,12 +31,12 @@ namespace ConsoleApp18
                     else
                     {
                         allGood = 0;
-                        Console.WriteLine(TextCuts.TextCuts.EnterValidNumber,min,max);
+                        Console.WriteLine(TextCuts.EnterValidNumber,min,max);
                     }
                 }
                 catch
                 {
-                    Console.WriteLine(TextCuts.TextCuts.NotValidNumber);
+                    Console.WriteLine(TextCuts.NotValidNumber);
                     allGood = 0;
                 }
             }
@@ -48,19 +49,19 @@ namespace ConsoleApp18
         {
             for (int i = 0; i < GamerArr.Length; i++)
             {
-                Console.WriteLine(TextCuts.TextCuts.ShowFinishResultByConsole,
-                    GamerArr[i].GamerName, GamerArr[i].GamerPoints, GamerArr[i].GamerStatus, GamerArr[i].GamerWinCash);
+                Console.WriteLine(TextCuts.ShowFinishResultByConsole,
+                    GamerArr[i].Name, GamerArr[i].Points, GamerArr[i].Status, GamerArr[i].WinCash);
             }
         }
 
         public void ShowResult(string Number, string Suit, int Points)
         {
-            Console.WriteLine(TextCuts.TextCuts.ShowResultByConsole, Number, Suit, Points);
+            Console.WriteLine(TextCuts.ShowResultByConsole, Number, Suit, Points);
         }
 
         public void ShowSomeOutput(string text)
         {
-            Console.WriteLine(TextCuts.TextCuts.ShowSomeText, text);
+            Console.WriteLine(TextCuts.ShowSomeText, text);
         }
 
         public void ShowSomeOutput(string text, int number )

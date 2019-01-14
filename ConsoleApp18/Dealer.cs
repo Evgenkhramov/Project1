@@ -8,7 +8,7 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    public class Gamer
+    public class Dealer
     {
         public string Name { get; set; }
         public int Rate { get; set; }
@@ -16,10 +16,10 @@ namespace BlackJackProject
         public GamerStatus Status { get; set; }
         public int WinCash { get; set; }
 
-        public Gamer()
+        public Dealer()
         {
-           
-            Name = TextCuts.BotName;
+            
+            Name = TextCuts.DealerName;
             Rate = 0;
             Points = 0;
             Status = GamerStatus.None;
@@ -27,4 +27,3 @@ namespace BlackJackProject
         }
     }
 }
-

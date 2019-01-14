@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     public class Settings
     {

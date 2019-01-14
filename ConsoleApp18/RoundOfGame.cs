@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp18.Enums;
-using ConsoleApp18.TextCuts;
+using BlackJackProject.Enums;
+using BlackJackProject.Constanta;
 
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class RoundOfGame
     {
@@ -15,36 +15,36 @@ namespace ConsoleApp18
 
         public static void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-            if (SomeGamer.GamerName == "Casino")
+            if (SomeGamer.Name == TextCuts.DealerName)
             {
-                if (SomeGamer.GamerPoints < Settings.MinimumCasinoPointsLevel)
+                if (SomeGamer.Points < Settings.MinimumCasinoPointsLevel)
                 {
                     DoPoints(SomeGamer, newSomeDeck);
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = GamerStatusEnum.Enough;
+                    SomeGamer.Status = GamerStatus.Enough;
                 }
             }
-            if (SomeGamer.GamerIndex == 1 && SomeGamer.GamerStatus != GamerStatusEnum.Enough)
+            if (/*SomeGamer.Index == 1 && */SomeGamer.Status != GamerStatus.Enough)
             {
-                inputOutput.ShowSomeOutput(TextCuts.TextCuts.NowYouHave + SomeGamer.GamerPoints);
-                inputOutput.ShowSomeOutput(TextCuts.TextCuts.DoYouWantCard);
+                inputOutput.ShowSomeOutput(TextCuts.NowYouHave + SomeGamer.Points);
+                inputOutput.ShowSomeOutput(TextCuts.DoYouWantCard);
 
                 string answer = Console.ReadLine();
-                if (answer == TextCuts.TextCuts.y)
+                if (answer == TextCuts.Yes)
                 {
                     DoPoints(SomeGamer, newSomeDeck);
                 }
                 else
                 {
-                    SomeGamer.GamerStatus = GamerStatusEnum.Enough;
-                    Console.WriteLine(SomeGamer.GamerStatus);
+                    SomeGamer.Status = GamerStatus.Enough;
+                    Console.WriteLine(SomeGamer.Status);
                 }
             }
             else
             {
-                if (SomeGamer.GamerStatus != GamerStatusEnum.Enough)
+                if (SomeGamer.Status != GamerStatus.Enough)
                 {
                     if (GetRandom() == 1)
                     {
@@ -52,7 +52,7 @@ namespace ConsoleApp18
                     }
                     else
                     {
-                        SomeGamer.GamerStatus = GamerStatusEnum.Enough;
+                        SomeGamer.Status = GamerStatus.Enough;
                     }
                 }
             }
@@ -60,29 +60,29 @@ namespace ConsoleApp18
 
         public static void DoGamerStatus(Gamer SomeGamer)
         {
-            if (SomeGamer.GamerPoints < Settings.BlackJeckPoints)
+            if (SomeGamer.Points < Settings.BlackJeckPoints)
             {
-                SomeGamer.GamerStatus = GamerStatusEnum.Plays;
+                SomeGamer.Status = GamerStatus.Plays;
             }
-            else if (SomeGamer.GamerPoints == Settings.BlackJeckPoints)
+            else if (SomeGamer.Points == Settings.BlackJeckPoints)
             {
-                SomeGamer.GamerStatus = GamerStatusEnum.Blackjack;
+                SomeGamer.Status = GamerStatus.Blackjack;
             }
             else
             {
-                SomeGamer.GamerStatus = GamerStatusEnum.Many;
+                SomeGamer.Status = GamerStatus.Many;
             }
         }
 
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-            inputOutput.ShowSomeOutput(SomeGamer.GamerName);
-            var element = CardDeck.GetSomeCard(newSomeDeck);
+            inputOutput.ShowSomeOutput(SomeGamer.Name);
+            var element = PrepareCardDeck.GetSomeCard(newSomeDeck);
             var cardPoints = OneCard.CardPointDict[element.CardNumber];
-            SomeGamer.GamerPoints += cardPoints;
+            SomeGamer.Points += cardPoints;
             DoGamerStatus(SomeGamer);
-            inputOutput.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.GamerPoints);
-            Console.WriteLine(SomeGamer.GamerStatus);
+            inputOutput.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.Points);
+            Console.WriteLine(SomeGamer.Status);
             inputOutput.ShowSomeOutput("");
         }
 

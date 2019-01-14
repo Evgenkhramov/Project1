@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp18.TextCuts;
+using BlackJackProject.Constanta;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class PrepareGameDesk
     {
         public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
-        public List<OneCard> newSomeDeck = CardDeck.DoOneDeck();
+        public List<OneCard> newSomeDeck = PrepareCardDeck.DoOneDeck();
+
 
         public List<OneCard> DistributionCards(Gamer[] GamerArray)
         {
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.NewCards);
+            inputOutput.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
 
             for (int i = 0; i < 2; i++)
             {
                 oneRound.DoRound(GamerArray, newSomeDeck);
             }
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.CardsOnTable);
+            inputOutput.ShowSomeOutput(TextCuts.CardsOnTable);
 
             return newSomeDeck;
         } 

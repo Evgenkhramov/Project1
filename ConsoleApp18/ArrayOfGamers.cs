@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJackProject.Constanta;
 
-namespace ConsoleApp18
+
+namespace BlackJackProject
 {
     class ArrayOfGamers
     {
-        public Gamer[] GenerateArrayOfGamers(int HowBots,string Name)
+        public Gamer[] GenerateArrayOfGamers(int NumberOfBots,string Name)
         {
-            var gamerArray = new Gamer[HowBots];
-            for (int i = 0; i < HowBots; i++)
+            var gamerArray = new Gamer[NumberOfBots];
+            for (int i = 0; i < NumberOfBots; i++)
             {
                 gamerArray[i] = new Gamer();
-                gamerArray[i].GamerIndex = i;
-                gamerArray[i].GamerRate = Settings.BotRate;
-                gamerArray[i].GamerName = TextCuts.TextCuts.BotName + i;
+                gamerArray[i].Rate = Settings.BotRate;
+                gamerArray[i].Name = TextCuts.BotName + i;
             }
-            gamerArray[0].GamerName = TextCuts.TextCuts.CasinoName;
-            gamerArray[0].GamerRate = 0;
-            gamerArray[1].GamerName = Name;
+            gamerArray[0].Name = TextCuts.DealerName;
+            gamerArray[0].Rate = 0;
+            gamerArray[1].Name = Name;
 
             return gamerArray;
         }      

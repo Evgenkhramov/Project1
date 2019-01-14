@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp18.TextCuts;
+using BlackJackProject.Constanta;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class DateFromGamer
     {
@@ -13,8 +13,8 @@ namespace ConsoleApp18
 
         public void ShowStart()
         {
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.StartGame);
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.EnterName);
+            inputOutput.ShowSomeOutput(TextCuts.StartGame);
+            inputOutput.ShowSomeOutput(TextCuts.EnterName);
         }
 
         public string GetUserName()
@@ -26,18 +26,21 @@ namespace ConsoleApp18
 
         public int GetNumberOfBots()
         {
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.HowManyBots,Settings.MaxBots);
+            inputOutput.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
+
             int howMany = inputOutput.InputInt(0, Settings.MaxBots);
-            int howManyBots = howMany + 2;
+            int howManyBots = howMany;
 
             return howManyBots;
         }
 
         public int GetGamerRate()
         {
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
-            int rate = inputOutput.InputInt(1, Settings.MaxRateForGamer);
-            inputOutput.ShowSomeOutput(TextCuts.TextCuts.ShowStartRaund);
+            inputOutput.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
+
+            int rate = inputOutput.InputInt(Settings.MinRateForGamer, Settings.MaxRateForGamer);
+
+            inputOutput.ShowSomeOutput(TextCuts.ShowStartRaund);
 
             return rate;
         }

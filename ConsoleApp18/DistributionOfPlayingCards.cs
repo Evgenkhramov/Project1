@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class DistributionOfPlayingCards
     {    
@@ -13,11 +13,15 @@ namespace ConsoleApp18
             ConsoleInputOutput inputOutput = new ConsoleInputOutput();
             for (int i = 0; i < GamerArray.Length; i++)
             {
-                inputOutput.ShowSomeOutput(GamerArray[i].GamerName);
-                OneCard element = CardDeck.GetSomeCard(newSomeDeck);
+                inputOutput.ShowSomeOutput(GamerArray[i].Name);
+
+                OneCard element = PrepareCardDeck.GetSomeCard(newSomeDeck);
+
                 int cardPoints = OneCard.CardPointDict[element.CardNumber];
-                GamerArray[i].GamerPoints += cardPoints;
-                inputOutput.ShowResult( element.CardNumber, element.CardSuit, GamerArray[i].GamerPoints);
+
+                GamerArray[i].Points += cardPoints;
+
+                inputOutput.ShowResult( element.CardNumber, element.CardSuit, GamerArray[i].Points);
             }
         }
     }

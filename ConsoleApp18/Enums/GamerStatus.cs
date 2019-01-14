@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp18.Enums
+namespace BlackJackProject.Enums
 {
-    public enum GamerStatusEnum
+    public enum GamerStatus
     {
+        None = 0,
         Win = 1,
         Many = 2,
         Plays = 3,

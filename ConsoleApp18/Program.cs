@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp18;
+using BlackJackProject;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class Program
     {

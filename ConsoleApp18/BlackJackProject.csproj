@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{504B5EBE-E613-4BB8-9B9B-B01D216EDC24}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp18</RootNamespace>
-    <AssemblyName>ConsoleApp18</AssemblyName>
+    <RootNamespace>BlackJackProject</RootNamespace>
+    <AssemblyName>BlackJackProject</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\SuitEnums.cs" />
-    <Compile Include="Enums\GamerStatusEnum.cs" />
+    <Compile Include="Dealer.cs" />
+    <Compile Include="Dictionary\CardPointDictionary.cs" />
+    <Compile Include="Enums\Suit.cs" />
+    <Compile Include="Enums\GamerStatus.cs" />
     <Compile Include="OneCard.cs" />
-    <Compile Include="CardDeck.cs" />
+    <Compile Include="PrepareCardDeck.cs" />
     <Compile Include="DateFromGamer.cs" />
     <Compile Include="DistributionOfPlayingCards.cs" />
     <Compile Include="Game.cs" />
@@ -57,6 +59,8 @@
     <Compile Include="ConsoleInputOutput.cs" />
     <Compile Include="Models\GameDeskModel.cs" />
     <Compile Include="Models\GameInfoModel.cs" />
+    <Compile Include="PrepareDealer.cs" />
+    <Compile Include="PrepareGamers.cs" />
     <Compile Include="RoundOfGame.cs" />
     <Compile Include="PrepareGameDesck.cs" />
     <Compile Include="Program.cs" />

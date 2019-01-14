@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJackProject.Dictionary;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
-    class CardDeck
+    class PrepareCardDeck
     {
         public static List<OneCard> DoOneDeck()
         {
             var cards = new List<OneCard>(52);
-            foreach (var suitName in Enum.GetNames(typeof(Enums.SuitEnums)))
+            foreach (var suitName in Enum.GetNames(typeof(Enums.Suit)))
             {
-                foreach (KeyValuePair<string, int> keyValue in OneCard.CardPointDict)
+                foreach (KeyValuePair<string, int> keyValue in CardPointDictionary.CardPointDict)
                 {
                     cards.Add(new OneCard
                     {

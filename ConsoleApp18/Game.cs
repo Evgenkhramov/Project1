@@ -1,11 +1,11 @@
-﻿using ConsoleApp18.Models;
+﻿using BlackJackProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp18
+namespace BlackJackProject
 {
     class Game
     {
@@ -13,10 +13,10 @@ namespace ConsoleApp18
 
         public Game()
         {
-            GameInfoModel Date = GetGameInfo();
-            GameDeskModel Prepare =  PrepareGame(Date);
-            GameProcess GameProcess =  DoGame(Prepare);
-            CheckResult(GameProcess);
+            GameInfoModel date = GetGameInfo();
+            GameDeskModel prepare =  PrepareGame(date);
+            GameProcess gameProcess =  DoGame(prepare);
+            CheckResult(gameProcess);
         }
 
         //return model
@@ -38,11 +38,13 @@ namespace ConsoleApp18
         private GameDeskModel PrepareGame(GameInfoModel gameInfo)
         {
             var thisGameMembers = new ArrayOfGamers();
+
             Gamer[] GamerArray = thisGameMembers.GenerateArrayOfGamers(gameInfo.HowManyBots, gameInfo.UserName);
-            GamerArray[1].GamerRate = gameInfo.GamerRate;
+            GamerArray[1].Rate = gameInfo.GamerRate;
 
             var PrepareThisGame = new PrepareGameDesk();
             var gameDeskModel = new GameDeskModel();
+
             gameDeskModel.PrepareCardDeck = PrepareThisGame.DistributionCards(GamerArray);
             gameDeskModel.PreparedGamerArray = GamerArray;
 
@@ -53,11 +55,12 @@ namespace ConsoleApp18
         {
             for (int i = 0; i < gameDeskModel.PreparedGamerArray.Length; i++)
             {
-                while (gameDeskModel.PreparedGamerArray[i].GamerStatus == Enums.GamerStatusEnum.Plays)
+                while (gameDeskModel.PreparedGamerArray[i].Status == Enums.GamerStatus.Plays)
                 {
                     RoundOfGame.DoRoundForGamer(gameDeskModel.PreparedGamerArray[i], gameDeskModel.PrepareCardDeck);
                 }
             }
+
             var gameProcessResult = new GameProcess();
             gameProcessResult.AfterGameArray = gameDeskModel.PreparedGamerArray;
 
@@ -67,8 +70,10 @@ namespace ConsoleApp18
         private void CheckResult(GameProcess result)
         {
             var gameResult = new GameResult();
-            gameResult.GetFinishResult(result.AfterGameArray);
             var inputOutput = new ConsoleInputOutput();
+
+            gameResult.GetFinishResult(result.AfterGameArray);
+
             inputOutput.ShowFinishResult(result.AfterGameArray);
 
             inputOutput.StringInput();

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    class GameProcess
+    class PrepareDealer
     {
-        public Gamer[] AfterGameArray;
+        Dealer dealer = new Dealer() { Name = TextCuts.DealerName, };
     }
 }
