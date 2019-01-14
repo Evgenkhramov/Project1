@@ -55,7 +55,6 @@ namespace ConsoleApp18
 
         public void ShowResult(string Number, string Suit, int Points)
         {
-
             Console.WriteLine(TextCuts.TextCuts.ShowResultByConsole, Number, Suit, Points);
         }
 
@@ -65,14 +64,12 @@ namespace ConsoleApp18
         }
 
         public void ShowSomeOutput(string text, int number )
-        {
-             
+        {    
             Console.WriteLine(text, number);
         }
 
         public void ShowSomeOutput(string text, int number1, int number2)
-        {
-             
+        {      
             Console.WriteLine(text, number1,number2);
         }
     }

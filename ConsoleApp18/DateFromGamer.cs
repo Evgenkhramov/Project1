@@ -23,6 +23,7 @@ namespace ConsoleApp18
 
             return userName;
         }
+
         public int GetNumberOfBots()
         {
             inputOutput.ShowSomeOutput(TextCuts.TextCuts.HowManyBots,Settings.MaxBots);
@@ -31,6 +32,7 @@ namespace ConsoleApp18
 
             return howManyBots;
         }
+
         public int GetGamerRate()
         {
             inputOutput.ShowSomeOutput(TextCuts.TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);

@@ -8,7 +8,6 @@ namespace ConsoleApp18
 {
     public class OneCard
     {
-        // вопрос с правильным именованием
         public string CardSuit;
         public string CardNumber;
         public override string ToString()

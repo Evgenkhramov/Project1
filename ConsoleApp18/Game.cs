@@ -73,7 +73,5 @@ namespace ConsoleApp18
 
             inputOutput.StringInput();
         }
-
-
     }
 }
