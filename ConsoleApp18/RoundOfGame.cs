@@ -43,7 +43,7 @@ namespace ConsoleApp18
             {
                 if (SomeGamer.GamerStatus != Enums.GamerStatusEnum.Enough)
                 {
-                    if (RandomAnswer() == 1)
+                    if (GetRandom() == 1)
                     {
                         DoPoints(SomeGamer, newSomeDeck);
                     }
@@ -74,7 +74,7 @@ namespace ConsoleApp18
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
             Console.WriteLine(SomeGamer.GamerName);
-            var element = CardDeck.TakeSomeCard(newSomeDeck);
+            var element = CardDeck.GetSomeCard(newSomeDeck);
             var cardPoints = OneCard.CardPointDict[element.CardNumber];
             SomeGamer.GamerPoints += cardPoints;
             DoGamerStatus(SomeGamer);
@@ -83,7 +83,7 @@ namespace ConsoleApp18
             inputOutput.ShowSomeOutput("");
         }
 
-        public static int RandomAnswer()
+        public static int GetRandom()
         {
             Random random = new Random(2);
             int randomNumber = random.Next(2);

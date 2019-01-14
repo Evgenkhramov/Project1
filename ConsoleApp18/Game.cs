@@ -65,7 +65,7 @@ namespace ConsoleApp18
         private void CheckResult(GameProcess result)
         {
             var gameResult = new GameResult();
-            gameResult.DoFinishResult(result.AfterGameArray);
+            gameResult.GetFinishResult(result.AfterGameArray);
             var inputOutput = new ConsoleInputOutput();
             inputOutput.ShowFinishResult(result.AfterGameArray);
 

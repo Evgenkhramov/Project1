@@ -15,15 +15,7 @@ namespace ConsoleApp18
         {
             return $"{CardSuit}:{CardNumber}";
         }
-
-        public enum Suit
-        {
-            Spades = 1,
-            Hearts = 2,
-            Diamonds = 3,
-            Clubs = 4
-        }
-       
+      
             public static Dictionary<string, int> CardPointDict = new Dictionary<string, int>
         {
             { "Ace",11},

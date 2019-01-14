@@ -8,7 +8,7 @@ namespace ConsoleApp18
 {
     class GameResult
     {
-        public Gamer[] DoFinishResult(Gamer[] SomeGamersArray)
+        public Gamer[] GetFinishResult(Gamer[] SomeGamersArray)
         {
             for (int i = 1; i < SomeGamersArray.Length; i++)
             {

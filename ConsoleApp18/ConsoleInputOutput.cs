@@ -13,7 +13,7 @@ namespace ConsoleApp18
             return Console.ReadLine();
         }
 
-        public int IntInput(int min, int max)
+        public int InputInt(int min, int max)
         {
             int validNumber = 0;
             int allGood = 0;

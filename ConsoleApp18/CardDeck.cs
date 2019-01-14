@@ -11,7 +11,7 @@ namespace ConsoleApp18
         public static List<OneCard> DoOneDeck()
         {
             var cards = new List<OneCard>(52);
-            foreach (var suitName in Enum.GetNames(typeof(OneCard.Suit)))
+            foreach (var suitName in Enum.GetNames(typeof(Enums.Suit)))
             {
                 foreach (KeyValuePair<string, int> keyValue in OneCard.CardPointDict)
                 {
@@ -26,7 +26,7 @@ namespace ConsoleApp18
             return cards;
         }
 
-        public static int CardRandomIndex(int DeckLength)
+        public static int GetCardRandomIndex(int DeckLength)
         {
             if (DeckLength > 0)
             {
@@ -38,9 +38,9 @@ namespace ConsoleApp18
             return 0;
         }
 
-        public static OneCard TakeSomeCard(List<OneCard> NewCardDeck)
+        public static OneCard GetSomeCard(List<OneCard> NewCardDeck)
         {
-            int indexCard = CardRandomIndex(NewCardDeck.Count);
+            int indexCard = GetCardRandomIndex(NewCardDeck.Count);
             if (indexCard >= 0)
             {
                 var someCard = NewCardDeck[indexCard];
