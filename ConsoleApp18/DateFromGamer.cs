@@ -9,26 +9,27 @@ namespace BlackJackProject
 {
     class DateFromGamer
     {
-        public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
+        public ConsoleInput input = new ConsoleInput();
+        public ConsoleOutput output = new ConsoleOutput();
 
         public void ShowStart()
         {
-            inputOutput.ShowSomeOutput(TextCuts.StartGame);
-            inputOutput.ShowSomeOutput(TextCuts.EnterName);
+            output.ShowSomeOutput(TextCuts.StartGame);
+            output.ShowSomeOutput(TextCuts.EnterName);
         }
 
         public string GetUserName()
         {
-            string userName = inputOutput.StringInput();
+            string userName = input.InputString();
 
             return userName;
         }
 
         public int GetNumberOfBots()
         {
-            inputOutput.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
+            output.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
 
-            int howMany = inputOutput.InputInt(0, Settings.MaxBots);
+            int howMany = input.InputInt(0, Settings.MaxBots);
             int howManyBots = howMany;
 
             return howManyBots;
@@ -36,11 +37,11 @@ namespace BlackJackProject
 
         public int GetGamerRate()
         {
-            inputOutput.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
+            output.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
 
-            int rate = inputOutput.InputInt(Settings.MinRateForGamer, Settings.MaxRateForGamer);
+            int rate = input.InputInt(Settings.MinRateForGamer, Settings.MaxRateForGamer);
 
-            inputOutput.ShowSomeOutput(TextCuts.ShowStartRaund);
+            output.ShowSomeOutput(TextCuts.ShowStartRaund);
 
             return rate;
         }

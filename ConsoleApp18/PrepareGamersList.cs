@@ -7,11 +7,9 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    public class PrepareGamers
+    public class PrepareGamersList
     {
-        List<Gamer> allGamers = new List<Gamer>();
-
-        public List<Gamer> GenerateList(Gamer gamer, int howManyBots)
+        public List<Gamer> GenerateBotList(List<Gamer> allGamers, Gamer gamer, int howManyBots)
         {
             for (int i = 0; i < howManyBots; i++)
             {  

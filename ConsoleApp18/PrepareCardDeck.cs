@@ -14,7 +14,7 @@ namespace BlackJackProject
             var cards = new List<OneCard>(52);
             foreach (var suitName in Enum.GetNames(typeof(Enums.Suit)))
             {
-                foreach (KeyValuePair<string, int> keyValue in CardPointDictionary.CardPointDict)
+                foreach (KeyValuePair<string, int> keyValue in CardPointDictionary.cardPointDict)
                 {
                     cards.Add(new OneCard
                     {

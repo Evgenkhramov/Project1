@@ -43,24 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dealer.cs" />
+    <Compile Include="ConsoleInput.cs" />
+    <Compile Include="ConsoleOutput.cs" />
     <Compile Include="Dictionary\CardPointDictionary.cs" />
     <Compile Include="Enums\Suit.cs" />
     <Compile Include="Enums\GamerStatus.cs" />
-    <Compile Include="OneCard.cs" />
+    <Compile Include="Models\Gamer.cs" />
+    <Compile Include="Models\OneCard.cs" />
     <Compile Include="PrepareCardDeck.cs" />
     <Compile Include="DateFromGamer.cs" />
     <Compile Include="DistributionOfPlayingCards.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameProcess.cs" />
-    <Compile Include="Gamer.cs" />
     <Compile Include="GameResult.cs" />
-    <Compile Include="ArrayOfGamers.cs" />
-    <Compile Include="ConsoleInputOutput.cs" />
+    <Compile Include="ArrayOfBots.cs" />
     <Compile Include="Models\GameDeskModel.cs" />
     <Compile Include="Models\GameInfoModel.cs" />
-    <Compile Include="PrepareDealer.cs" />
-    <Compile Include="PrepareGamers.cs" />
+    <Compile Include="PrepareGamersList.cs" />
     <Compile Include="RoundOfGame.cs" />
     <Compile Include="PrepareGameDesck.cs" />
     <Compile Include="Program.cs" />

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace BlackJackProject.Dictionary
 {
 
-    class CardPointDictionary
+    public class CardPointDictionary
     {
-        public static Dictionary<string, int> CardPointDict = new Dictionary<string, int>
+        public static Dictionary<string, int> cardPointDict = new Dictionary<string, int>
         {
             { "Ace",11},
             { "King",10},

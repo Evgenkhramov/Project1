@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
@@ -14,8 +15,8 @@ namespace BlackJackProject
         public Game()
         {
             GameInfoModel date = GetGameInfo();
-            GameDeskModel prepare =  PrepareGame(date);
-            GameProcess gameProcess =  DoGame(prepare);
+            GameDeskModel prepare = PrepareGame(date);
+            GameProcess gameProcess = DoGame(prepare);
             CheckResult(gameProcess);
         }
 
@@ -30,25 +31,36 @@ namespace BlackJackProject
             var gameInfo = new GameInfoModel();
             gameInfo.HowManyBots = HowManyBots;
             gameInfo.UserName = UserName;
-            gameInfo.GamerRate = someGameGetDate.GetGamerRate ();
+            gameInfo.UserRate = someGameGetDate.GetGamerRate();
 
             return gameInfo;
         }
 
         private GameDeskModel PrepareGame(GameInfoModel gameInfo)
         {
-            var thisGameMembers = new ArrayOfGamers();
 
-            Gamer[] GamerArray = thisGameMembers.GenerateArrayOfGamers(gameInfo.HowManyBots, gameInfo.UserName);
-            GamerArray[1].Rate = gameInfo.GamerRate;
+            List<Gamer> GamersList = new List<Gamer>();
+            PrepareGamersList BotGamers = new PrepareGamersList();
+            BotGamers.GenerateBotList(GamersList, )
 
-            var PrepareThisGame = new PrepareGameDesk();
-            var gameDeskModel = new GameDeskModel();
 
-            gameDeskModel.PrepareCardDeck = PrepareThisGame.DistributionCards(GamerArray);
-            gameDeskModel.PreparedGamerArray = GamerArray;
+            var User = new Gamer();
+            User.Name = gameInfo.UserName;
+            User.Rate = gameInfo.UserRate;
 
-            return gameDeskModel;
+            var DealerOfGame = new Gamer();
+            DealerOfGame.Name = TextCuts.DealerName;
+
+            //var botsMembers = new ArrayOfBots();
+            //Gamer[] arrayOfBots = botsMembers.GenerateArrayOfBots(gameInfo.HowManyBots, TextCuts.BotName, Settings.BotRate);
+
+            //var PrepareThisGame = new PrepareGameDesk();
+            //var gameDeskModel = new GameDeskModel();
+
+            //gameDeskModel.PrepareCardDeck = PrepareThisGame.DistributionCards(arrayOfBots);
+            //gameDeskModel.PreparedGamerArray = arrayOfBots;
+
+            //return gameDeskModel;
         }
 
         private GameProcess DoGame(GameDeskModel gameDeskModel)
@@ -70,13 +82,14 @@ namespace BlackJackProject
         private void CheckResult(GameProcess result)
         {
             var gameResult = new GameResult();
-            var inputOutput = new ConsoleInputOutput();
+            var input = new ConsoleInput();
+            var output = new ConsoleOutput();
 
             gameResult.GetFinishResult(result.AfterGameArray);
 
-            inputOutput.ShowFinishResult(result.AfterGameArray);
+            output.ShowFinishResult(result.AfterGameArray);
 
-            inputOutput.StringInput();
+            input.InputString();
         }
     }
 }

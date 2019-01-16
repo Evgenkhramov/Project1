@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Enums;
 using BlackJackProject.Constanta;
+using BlackJackProject.Dictionary;
 
 
 namespace BlackJackProject
 {
     class RoundOfGame
     {
-        public static ConsoleInputOutput inputOutput = new ConsoleInputOutput();
+        public static ConsoleInput input = new ConsoleInput();
+        public static ConsoleOutput output = new ConsoleOutput();
 
         public static void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
@@ -28,8 +30,8 @@ namespace BlackJackProject
             }
             if (/*SomeGamer.Index == 1 && */SomeGamer.Status != GamerStatus.Enough)
             {
-                inputOutput.ShowSomeOutput(TextCuts.NowYouHave + SomeGamer.Points);
-                inputOutput.ShowSomeOutput(TextCuts.DoYouWantCard);
+                output.ShowSomeOutput(TextCuts.NowYouHave + SomeGamer.Points);
+                output.ShowSomeOutput(TextCuts.DoYouWantCard);
 
                 string answer = Console.ReadLine();
                 if (answer == TextCuts.Yes)
@@ -76,14 +78,14 @@ namespace BlackJackProject
 
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-            inputOutput.ShowSomeOutput(SomeGamer.Name);
+            output.ShowSomeOutput(SomeGamer.Name);
             var element = PrepareCardDeck.GetSomeCard(newSomeDeck);
-            var cardPoints = OneCard.CardPointDict[element.CardNumber];
+            var cardPoints = CardPointDictionary.cardPointDict[element.CardNumber];
             SomeGamer.Points += cardPoints;
             DoGamerStatus(SomeGamer);
-            inputOutput.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.Points);
+            output.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.Points);
             Console.WriteLine(SomeGamer.Status);
-            inputOutput.ShowSomeOutput("");
+            output.ShowSomeOutput("");
         }
 
         public static int GetRandom()

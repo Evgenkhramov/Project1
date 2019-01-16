@@ -8,7 +8,7 @@ namespace BlackJackProject.Constanta
 {
     public class TextCuts
     {
-        public static string BotName => "Bot";
+        public static string BotName => "SomeBotGamer";
         public static string DealerName => "BlackDraggDialer=)";
         public static string StartGame => "Start New Game!!!";
         public static string EnterName => "Enter Your Name please";

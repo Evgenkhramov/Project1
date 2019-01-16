@@ -10,7 +10,7 @@ namespace BlackJackProject.Models
     {
         public string UserName ;
         public int HowManyBots ;
-        public int GamerRate;
+        public int UserRate;
 
     }
 }

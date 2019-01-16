@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BlackJackProject.Dictionary;
 
 namespace BlackJackProject
 {
     class DistributionOfPlayingCards
-    {    
-        public void DoRound(Gamer[] GamerArray, List<OneCard> newSomeDeck)
+    {
+        public void DoRound(Gamer gamer, List<OneCard> newSomeDeck)
         {
-            ConsoleInputOutput inputOutput = new ConsoleInputOutput();
-            for (int i = 0; i < GamerArray.Length; i++)
-            {
-                inputOutput.ShowSomeOutput(GamerArray[i].Name);
+            ConsoleOutput output = new ConsoleOutput();
 
-                OneCard element = PrepareCardDeck.GetSomeCard(newSomeDeck);
+            output.ShowSomeOutput(gamer.Name);
 
-                int cardPoints = OneCard.CardPointDict[element.CardNumber];
+            OneCard element = PrepareCardDeck.GetSomeCard(newSomeDeck);
+            int cardPoints = CardPointDictionary.cardPointDict[element.CardNumber];
+            gamer.Points += cardPoints;
 
-                GamerArray[i].Points += cardPoints;
+            output.ShowResult(element.CardNumber, element.CardSuit, gamer.Points);
 
-                inputOutput.ShowResult( element.CardNumber, element.CardSuit, GamerArray[i].Points);
-            }
         }
     }
 }

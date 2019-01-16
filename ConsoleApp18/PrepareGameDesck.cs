@@ -9,22 +9,22 @@ namespace BlackJackProject
 {
     class PrepareGameDesk
     {
-        public ConsoleInputOutput inputOutput = new ConsoleInputOutput();
+        public ConsoleOutput output = new ConsoleOutput();
         public List<OneCard> newSomeDeck = PrepareCardDeck.DoOneDeck();
 
 
-        public List<OneCard> DistributionCards(Gamer[] GamerArray)
+        public List<OneCard> DistributionCards(Gamer gamer)
         {
-            inputOutput.ShowSomeOutput(TextCuts.NewCards);
+            output.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
 
             for (int i = 0; i < 2; i++)
             {
-                oneRound.DoRound(GamerArray, newSomeDeck);
+                oneRound.DoRound(gamer, newSomeDeck);
             }
-            inputOutput.ShowSomeOutput(TextCuts.CardsOnTable);
+            output.ShowSomeOutput(TextCuts.CardsOnTable);
 
             return newSomeDeck;
-        } 
+        }
     }
 }
