@@ -9,7 +9,7 @@ namespace BlackJackProject
 {
     public class PrepareGamersList
     {
-        public List<Gamer> GenerateBotList(List<Gamer> allGamers, Gamer gamer, int howManyBots)
+        public List<Gamer> GenerateBotList(List<Gamer> allGamers, int howManyBots)
         {
             for (int i = 0; i < howManyBots; i++)
             {  

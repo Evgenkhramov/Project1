@@ -41,12 +41,8 @@ namespace BlackJackProject
 
             List<Gamer> GamersList = new List<Gamer>();
             PrepareGamersList BotGamers = new PrepareGamersList();
-            BotGamers.GenerateBotList(GamersList, )
-
-
-            var User = new Gamer();
-            User.Name = gameInfo.UserName;
-            User.Rate = gameInfo.UserRate;
+            List<Gamer>  AllGamers = BotGamers.GenerateBotList(GamersList, gameInfo.HowManyBots);
+            AllGamers = BotGamers.AddPlayer(AllGamers, gameInfo.UserName, gameInfo.UserRate);
 
             var DealerOfGame = new Gamer();
             DealerOfGame.Name = TextCuts.DealerName;
@@ -60,7 +56,7 @@ namespace BlackJackProject
             //gameDeskModel.PrepareCardDeck = PrepareThisGame.DistributionCards(arrayOfBots);
             //gameDeskModel.PreparedGamerArray = arrayOfBots;
 
-            //return gameDeskModel;
+            return gameDeskModel;
         }
 
         private GameProcess DoGame(GameDeskModel gameDeskModel)
