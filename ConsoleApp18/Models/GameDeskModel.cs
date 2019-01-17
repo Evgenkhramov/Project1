@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BlackJackProject.Models
 {
-    class GameDeskModel
+    public class GameDeskModel
     {
-        public Gamer[] PreparedGamerArray;
-        public List<OneCard> PrepareCardDeck;
+        public List<Gamer> GamerListAfterPrepare;
+        public List<OneCard> cardDeck;
+        
     }
 }

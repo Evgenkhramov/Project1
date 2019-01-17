@@ -7,24 +7,29 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    class PrepareGameDesk
+    public class PrepareGameDesk
     {
-        public ConsoleOutput output = new ConsoleOutput();
-        public List<OneCard> newSomeDeck = PrepareCardDeck.DoOneDeck();
+        ConsoleOutput output = new ConsoleOutput();
 
-
-        public List<OneCard> DistributionCards(Gamer gamer)
+        public List<Gamer> DistributionCards(List<Gamer> gamer, List<OneCard> cardDeck)
         {
             output.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
-
-            for (int i = 0; i < 2; i++)
+            foreach (Gamer player in gamer)
             {
-                oneRound.DoRound(gamer, newSomeDeck);
+                oneRound.DoRound(player, cardDeck);
             }
             output.ShowSomeOutput(TextCuts.CardsOnTable);
 
-            return newSomeDeck;
+            return gamer;
         }
+        //public Gamer DistributionCards(Gamer gamer, List<OneCard> cardDeck)
+        //{
+
+        //    var oneRound = new DistributionOfPlayingCards();
+        //    oneRound.DoRound(gamer, cardDeck);
+
+        //    return gamer;
+        //}
     }
 }

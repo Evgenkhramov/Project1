@@ -9,70 +9,62 @@ namespace BlackJackProject
 {
     class GameResult
     {
-        public Gamer[] GetFinishResult(Gamer[] SomeGamersArray)
+        public List<Gamer> GetFinishResult(List<Gamer> SomeGamersList)
         {
-            for (int i = 1; i < SomeGamersArray.Length; i++)
+            Gamer dealer = new Gamer();
+            foreach (Gamer player in SomeGamersList)
             {
-                if (SomeGamersArray[0].Status == GamerStatus.Blackjack)
+                if (player.Role == GamerRole.Dealer)
                 {
-                    if (SomeGamersArray[i].Status == GamerStatus.Blackjack)
-                    {
-                        SomeGamersArray[i].Status = GamerStatus.Win;
-                        SomeGamersArray[i].WinCash = SomeGamersArray[i].Rate;
-                    }
-                    else
-                    {
-                        SomeGamersArray[i].Status = GamerStatus.Lose;
-                        SomeGamersArray[0].WinCash += SomeGamersArray[i].Rate;
-                    }
-
-                }
-                else if (SomeGamersArray[0].Status == GamerStatus.Enough)
-                {
-                    if (SomeGamersArray[i].Status == GamerStatus.Blackjack || SomeGamersArray[i].Status == GamerStatus.Enough && SomeGamersArray[i].Points > SomeGamersArray[0].Points)
-                    {
-                        SomeGamersArray[i].Status = GamerStatus.Win;
-                        SomeGamersArray[i].WinCash = SomeGamersArray[i].Rate * 3 / 2;
-                    }
-                    if (SomeGamersArray[i].Status == GamerStatus.Many || SomeGamersArray[i].Status == GamerStatus.Enough && SomeGamersArray[i].Points < SomeGamersArray[0].Points && SomeGamersArray[0].Points < Settings.BlackJeckPoints)
-                    {
-                        SomeGamersArray[i].Status = GamerStatus.Lose;
-                        SomeGamersArray[0].WinCash += SomeGamersArray[i].Rate;
-                        SomeGamersArray[i].WinCash = 0;
-                    }
-                    if (SomeGamersArray[i].Status == GamerStatus.Enough && SomeGamersArray[i].Points <= Settings.BlackJeckPoints && SomeGamersArray[0].Points < SomeGamersArray[i].Points)
-                    {
-                        SomeGamersArray[i].Status = GamerStatus.Win;
-                        SomeGamersArray[i].WinCash = SomeGamersArray[i].Rate * 3 / 2;
-                    }
-                    
-                }
-                else
-                {
-                    if (SomeGamersArray[0].Status == GamerStatus.Many)
-                    {
-
-                        if (SomeGamersArray[i].Points < Settings.BlackJeckPoints)
-                        {
-                            SomeGamersArray[i].WinCash = SomeGamersArray[i].Rate;
-                            SomeGamersArray[i].Status = GamerStatus.Win;
-                        }
-                        if (SomeGamersArray[i].Points == Settings.BlackJeckPoints)
-                        {
-                            SomeGamersArray[i].WinCash = SomeGamersArray[i].Rate * 3 / 2;
-                            SomeGamersArray[i].Status = GamerStatus.Blackjack;
-                        }
-                        else
-                        {
-                            SomeGamersArray[i].WinCash = 0;
-                            SomeGamersArray[i].Status = GamerStatus.Lose;
-                            SomeGamersArray[0].WinCash += SomeGamersArray[i].Rate;
-                        }
-                    }
+                    dealer = player;
                 }
             }
+            foreach (Gamer player in SomeGamersList)
+            {
+                if (player.Role != GamerRole.Dealer)
+                {
+                    if (player.Status == GamerStatus.Blackjack && dealer.Status != GamerStatus.Blackjack)
+                    {
+                        player.Status = GamerStatus.Win;
+                        player.WinCash = 3 / 2 * player.Rate;
+                    }
+                    if (player.Status == GamerStatus.Blackjack && dealer.Status == GamerStatus.Blackjack)
+                    {
+                        player.Status = GamerStatus.Win;
+                        player.WinCash = player.Rate;
+                    }
+                    if (player.Status == GamerStatus.Enough && dealer.Status == GamerStatus.Blackjack)
+                    {
+                        player.Status = GamerStatus.Win;
+                        player.WinCash = 0;
+                        dealer.WinCash += player.Rate;
+                    }
+                    if (player.Status == GamerStatus.Enough && player.Points >= dealer.Points && dealer.Status == GamerStatus.Enough)
+                    {
+                        player.Status = GamerStatus.Win;
+                        player.WinCash = 3 / 2 * player.Rate;
+                    }
+                    if (player.Status == GamerStatus.Enough && player.Points < dealer.Points && dealer.Status == GamerStatus.Enough)
+                    {
+                        player.Status = GamerStatus.Lose;
+                        player.WinCash = 0;
+                        dealer.Rate += player.Rate;
+                    }
+                    if (player.Status == GamerStatus.Enough && player.Points < dealer.Points && dealer.Status == GamerStatus.Many)
+                    {
+                        player.Status = GamerStatus.Win;
+                        player.WinCash = 3 / 2 * player.Rate;
+                    }
+                    if (player.Status == GamerStatus.Many && player.Points < dealer.Points && dealer.Status == GamerStatus.Many)
+                    {
+                        player.Status = GamerStatus.Lose;
+                        player.WinCash = 0;
+                        dealer.Rate += player.Rate;
+                    }
 
-            return SomeGamersArray;
+                }
+            }
+            return SomeGamersList;
         }
     }
 }

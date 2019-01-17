@@ -10,25 +10,25 @@ using BlackJackProject.Dictionary;
 
 namespace BlackJackProject
 {
-    class RoundOfGame
+    public class RoundOfGame
     {
-        public static ConsoleInput input = new ConsoleInput();
-        public static ConsoleOutput output = new ConsoleOutput();
+         static ConsoleInput input = new ConsoleInput();
+         static ConsoleOutput output = new ConsoleOutput();
 
-        public static void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
+        public void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
-            if (SomeGamer.Name == TextCuts.DealerName)
+            if (SomeGamer.Role == GamerRole.Dealer)
             {
                 if (SomeGamer.Points < Settings.MinimumCasinoPointsLevel)
                 {
                     DoPoints(SomeGamer, newSomeDeck);
                 }
-                else
+                if(SomeGamer.Points >= Settings.MinimumCasinoPointsLevel)
                 {
                     SomeGamer.Status = GamerStatus.Enough;
                 }
             }
-            if (/*SomeGamer.Index == 1 && */SomeGamer.Status != GamerStatus.Enough)
+            if (SomeGamer.Role == GamerRole.Gamer && SomeGamer.Status != GamerStatus.Enough)
             {
                 output.ShowSomeOutput(TextCuts.NowYouHave + SomeGamer.Points);
                 output.ShowSomeOutput(TextCuts.DoYouWantCard);
@@ -38,13 +38,13 @@ namespace BlackJackProject
                 {
                     DoPoints(SomeGamer, newSomeDeck);
                 }
-                else
+                if(answer != TextCuts.Yes)
                 {
                     SomeGamer.Status = GamerStatus.Enough;
                     Console.WriteLine(SomeGamer.Status);
                 }
             }
-            else
+            if(SomeGamer.Role == GamerRole.Bot)
             {
                 if (SomeGamer.Status != GamerStatus.Enough)
                 {

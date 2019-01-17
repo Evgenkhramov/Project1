@@ -15,6 +15,7 @@ namespace BlackJackProject
         public int Points { get; set; }
         public GamerStatus Status { get; set; }
         public int WinCash { get; set; }
+        public GamerRole Role { get; set; }
 
         public Gamer()
         {
@@ -24,6 +25,7 @@ namespace BlackJackProject
             Points = 0;
             Status = GamerStatus.None;
             WinCash = 0;
+            Role = GamerRole.None;
         }
     }
 }

@@ -10,12 +10,12 @@ namespace BlackJackProject
     class ConsoleOutput
     {
 
-        public void ShowFinishResult(Gamer[] GamerArr)
+        public void ShowFinishResult(List<Gamer> GamerList)
         {
-            for (int i = 0; i < GamerArr.Length; i++)
+            foreach(Gamer player in GamerList)
             {
                 Console.WriteLine(TextCuts.ShowFinishResultByConsole,
-                    GamerArr[i].Name, GamerArr[i].Points, GamerArr[i].Status, GamerArr[i].WinCash);
+                    player.Name, player.Points, player.Status, player.WinCash);
             }
         }
 

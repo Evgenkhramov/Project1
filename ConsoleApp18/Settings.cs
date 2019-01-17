@@ -8,7 +8,9 @@ namespace BlackJackProject
 {
     public class Settings
     {
+
         public static int BotRate { get; private set; }
+        public static int DealerRate { get; private set; }
         public static int BlackJeckPoints { get; private set; }
         public static int MinimumCasinoPointsLevel { get; private set; }
         public static int MaxRateForGamer { get; private set; }
@@ -18,6 +20,7 @@ namespace BlackJackProject
         public Settings()
         {
             BotRate = 10;
+            DealerRate = 0;
             BlackJeckPoints = 21;
             MinimumCasinoPointsLevel = 17;
             MaxRateForGamer = 50;

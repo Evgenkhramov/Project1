@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
+using BlackJackProject.Enums;
 
 namespace BlackJackProject
 {
@@ -38,39 +39,37 @@ namespace BlackJackProject
 
         private GameDeskModel PrepareGame(GameInfoModel gameInfo)
         {
-
             List<Gamer> GamersList = new List<Gamer>();
             PrepareGamersList BotGamers = new PrepareGamersList();
-            List<Gamer>  AllGamers = BotGamers.GenerateBotList(GamersList, gameInfo.HowManyBots);
-            AllGamers = BotGamers.AddPlayer(AllGamers, gameInfo.UserName, gameInfo.UserRate);
+            List<Gamer> AllGamers = BotGamers.GenerateBotList(GamersList, gameInfo.HowManyBots);
+            AllGamers = BotGamers.AddPlayer(AllGamers, gameInfo.UserName, gameInfo.UserRate, GamerRole.Gamer, GamerStatus.Plays);
+            AllGamers = BotGamers.AddPlayer(AllGamers, TextCuts.DealerName, Settings.DealerRate, GamerRole.Dealer, GamerStatus.Plays);
 
-            var DealerOfGame = new Gamer();
-            DealerOfGame.Name = TextCuts.DealerName;
+            var cardDeck = PrepareCardDeck.DoOneDeck();
+            PrepareGameDesk PrepareGame = new PrepareGameDesk();
 
-            //var botsMembers = new ArrayOfBots();
-            //Gamer[] arrayOfBots = botsMembers.GenerateArrayOfBots(gameInfo.HowManyBots, TextCuts.BotName, Settings.BotRate);
+            List<Gamer> GamerList = PrepareGame.DistributionCards(AllGamers, cardDeck);
 
-            //var PrepareThisGame = new PrepareGameDesk();
-            //var gameDeskModel = new GameDeskModel();
-
-            //gameDeskModel.PrepareCardDeck = PrepareThisGame.DistributionCards(arrayOfBots);
-            //gameDeskModel.PreparedGamerArray = arrayOfBots;
-
+            var gameDeskModel = new GameDeskModel();
+            gameDeskModel.GamerListAfterPrepare = GamerList;
+            gameDeskModel.cardDeck = cardDeck;
             return gameDeskModel;
         }
 
         private GameProcess DoGame(GameDeskModel gameDeskModel)
         {
-            for (int i = 0; i < gameDeskModel.PreparedGamerArray.Length; i++)
+            RoundOfGame makeGame = new RoundOfGame();
+
+            foreach (Gamer player in gameDeskModel.GamerListAfterPrepare)
             {
-                while (gameDeskModel.PreparedGamerArray[i].Status == Enums.GamerStatus.Plays)
+                while (player.Status == GamerStatus.Plays)
                 {
-                    RoundOfGame.DoRoundForGamer(gameDeskModel.PreparedGamerArray[i], gameDeskModel.PrepareCardDeck);
+                    makeGame.DoRoundForGamer(player, gameDeskModel.cardDeck);
                 }
             }
 
             var gameProcessResult = new GameProcess();
-            gameProcessResult.AfterGameArray = gameDeskModel.PreparedGamerArray;
+            gameProcessResult.AfterGameArray = gameDeskModel.GamerListAfterPrepare;
 
             return gameProcessResult;
         }

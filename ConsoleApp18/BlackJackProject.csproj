@@ -46,6 +46,7 @@
     <Compile Include="ConsoleInput.cs" />
     <Compile Include="ConsoleOutput.cs" />
     <Compile Include="Dictionary\CardPointDictionary.cs" />
+    <Compile Include="Enums\GamerRole.cs" />
     <Compile Include="Enums\Suit.cs" />
     <Compile Include="Enums\GamerStatus.cs" />
     <Compile Include="Models\Gamer.cs" />
