@@ -47,12 +47,12 @@ namespace BlackJackProject
 
             var cardDeck = PrepareCardDeck.DoOneDeck();
             PrepareGameDesk PrepareGame = new PrepareGameDesk();
-
             List<Gamer> GamerList = PrepareGame.DistributionCards(AllGamers, cardDeck);
 
             var gameDeskModel = new GameDeskModel();
             gameDeskModel.GamerListAfterPrepare = GamerList;
             gameDeskModel.cardDeck = cardDeck;
+
             return gameDeskModel;
         }
 
@@ -67,7 +67,6 @@ namespace BlackJackProject
                     makeGame.DoRoundForGamer(player, gameDeskModel.cardDeck);
                 }
             }
-
             var gameProcessResult = new GameProcess();
             gameProcessResult.AfterGameArray = gameDeskModel.GamerListAfterPrepare;
 

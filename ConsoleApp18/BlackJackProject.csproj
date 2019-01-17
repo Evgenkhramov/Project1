@@ -55,9 +55,8 @@
     <Compile Include="DateFromGamer.cs" />
     <Compile Include="DistributionOfPlayingCards.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameProcess.cs" />
+    <Compile Include="Models\GameProcess.cs" />
     <Compile Include="GameResult.cs" />
-    <Compile Include="ArrayOfBots.cs" />
     <Compile Include="Models\GameDeskModel.cs" />
     <Compile Include="Models\GameInfoModel.cs" />
     <Compile Include="PrepareGamersList.cs" />
