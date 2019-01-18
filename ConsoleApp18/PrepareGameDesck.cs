@@ -15,10 +15,13 @@ namespace BlackJackProject
         {
             output.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
-            foreach (Gamer player in gamerList)
+            for (int i = 0; i < 2; i++)
             {
-                oneRound.DoRound(player, cardDeckList);
-            }
+                foreach (Gamer player in gamerList)
+                {
+                    oneRound.DoRound(player, cardDeckList);
+                }
+            } 
             output.ShowSomeOutput(TextCuts.CardsOnTable);
 
             return gamerList;
