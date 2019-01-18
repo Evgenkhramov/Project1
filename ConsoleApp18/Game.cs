@@ -11,28 +11,28 @@ namespace BlackJackProject
 {
     class Game
     {
-        Settings game = new Settings();
+        Settings GameSettings = new Settings();
 
         public Game()
         {
-            GameInfoModel date = GetGameInfo();
-            GameDeskModel prepare = PrepareGame(date);
-            GameProcess gameProcess = DoGame(prepare);
+            GameInfoModel Date = GetGameInfo();
+            GameDeskModel Prepare = PrepareGame(Date);
+            GameProcess gameProcess = DoGame(Prepare);
             CheckResult(gameProcess);
         }
 
         //return model
         private GameInfoModel GetGameInfo()
         {
-            var someGameGetDate = new DateFromGamer();
-            someGameGetDate.ShowStart();
-            string UserName = someGameGetDate.GetUserName();
-            int HowManyBots = someGameGetDate.GetNumberOfBots();
+            var SomeGameGetDate = new DateFromGamer();
+            SomeGameGetDate.ShowStart();
+            string UserName = SomeGameGetDate.GetUserName();
+            int HowManyBots = SomeGameGetDate.GetNumberOfBots();
 
             var gameInfo = new GameInfoModel();
             gameInfo.HowManyBots = HowManyBots;
             gameInfo.UserName = UserName;
-            gameInfo.UserRate = someGameGetDate.GetGamerRate();
+            gameInfo.UserRate = SomeGameGetDate.GetGamerRate();
 
             return gameInfo;
         }

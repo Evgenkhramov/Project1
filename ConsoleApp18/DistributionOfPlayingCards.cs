@@ -11,15 +11,15 @@ namespace BlackJackProject
     {
         public void DoRound(Gamer gamer, List<OneCard> newSomeDeck)
         {
-            ConsoleOutput output = new ConsoleOutput();
+            ConsoleOutput Output = new ConsoleOutput();
 
-            output.ShowSomeOutput(gamer.Name);
+            Output.ShowSomeOutput(gamer.Name);
 
-            OneCard element = PrepareCardDeck.GetSomeCard(newSomeDeck);
-            int cardPoints = CardPointDictionary.cardPointDict[element.CardNumber];
+            OneCard SomeCard = PrepareCardDeck.GetSomeCard(newSomeDeck);
+            int cardPoints = CardPointDictionary.cardPointDict[SomeCard.CardNumber];
             gamer.Points += cardPoints;
 
-            output.ShowResult(element.CardNumber, element.CardSuit, gamer.Points);
+            Output.ShowResult(SomeCard.CardNumber, SomeCard.CardSuit, gamer.Points);
 
         }
     }
