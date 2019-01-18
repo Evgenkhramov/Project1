@@ -7,7 +7,7 @@ using BlackJackProject.Enums;
 
 namespace BlackJackProject
 {
-    class GameResult
+    public class GameResult
     {
         public List<Gamer> GetFinishResult(List<Gamer> SomeGamersList)
         {

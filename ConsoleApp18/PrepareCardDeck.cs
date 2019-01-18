@@ -7,7 +7,7 @@ using BlackJackProject.Dictionary;
 
 namespace BlackJackProject
 {
-    class PrepareCardDeck
+   public class PrepareCardDeck
     {
         public static List<OneCard> DoOneDeck()
         {

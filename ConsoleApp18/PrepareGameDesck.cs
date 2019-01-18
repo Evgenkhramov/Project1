@@ -11,25 +11,17 @@ namespace BlackJackProject
     {
         ConsoleOutput output = new ConsoleOutput();
 
-        public List<Gamer> DistributionCards(List<Gamer> gamer, List<OneCard> cardDeck)
+        public List<Gamer> DistributionCards(List<Gamer> gamerList, List<OneCard> cardDeckList)
         {
             output.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
-            foreach (Gamer player in gamer)
+            foreach (Gamer player in gamerList)
             {
-                oneRound.DoRound(player, cardDeck);
+                oneRound.DoRound(player, cardDeckList);
             }
             output.ShowSomeOutput(TextCuts.CardsOnTable);
 
-            return gamer;
+            return gamerList;
         }
-        //public Gamer DistributionCards(Gamer gamer, List<OneCard> cardDeck)
-        //{
-
-        //    var oneRound = new DistributionOfPlayingCards();
-        //    oneRound.DoRound(gamer, cardDeck);
-
-        //    return gamer;
-        //}
     }
 }

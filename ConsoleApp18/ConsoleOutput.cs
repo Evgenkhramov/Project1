@@ -7,7 +7,7 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    class ConsoleOutput
+    public class ConsoleOutput
     {
 
         public void ShowFinishResult(List<Gamer> GamerList)
@@ -19,9 +19,9 @@ namespace BlackJackProject
             }
         }
 
-        public void ShowResult(string Number, string Suit, int Points)
+        public void ShowResult(string number, string suit, int points)
         {
-            Console.WriteLine(TextCuts.ShowResultByConsole, Number, Suit, Points);
+            Console.WriteLine(TextCuts.ShowResultByConsole, number, suit, points);
         }
 
         public void ShowSomeOutput(string text)
@@ -32,6 +32,10 @@ namespace BlackJackProject
         public void ShowSomeOutput(string text, int number)
         {
             Console.WriteLine(text, number);
+        }
+        public void ShowSomeOutput(Enums.GamerStatus text)
+        {
+            Console.WriteLine(text);
         }
 
         public void ShowSomeOutput(string text, int number1, int number2)

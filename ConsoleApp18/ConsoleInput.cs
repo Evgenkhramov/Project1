@@ -7,7 +7,7 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    class ConsoleInput
+    public class ConsoleInput
     {
         public string InputString()
         {

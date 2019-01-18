@@ -17,22 +17,22 @@ namespace BlackJackProject
         {
             GameInfoModel Date = GetGameInfo();
             GameDeskModel Prepare = PrepareGame(Date);
-            GameProcess gameProcess = DoGame(Prepare);
-            CheckResult(gameProcess);
+            GameProcess GameProcess = DoGame(Prepare);
+            CheckResult(GameProcess);
         }
 
         //return model
         private GameInfoModel GetGameInfo()
         {
-            var SomeGameGetDate = new DateFromGamer();
-            SomeGameGetDate.ShowStart();
-            string UserName = SomeGameGetDate.GetUserName();
-            int HowManyBots = SomeGameGetDate.GetNumberOfBots();
+            var someGameGetDate = new DateFromGamer();
+            someGameGetDate.ShowStart();
+            string UserName = someGameGetDate.GetUserName();
+            int HowManyBots = someGameGetDate.GetNumberOfBots();
 
             var gameInfo = new GameInfoModel();
             gameInfo.HowManyBots = HowManyBots;
             gameInfo.UserName = UserName;
-            gameInfo.UserRate = SomeGameGetDate.GetGamerRate();
+            gameInfo.UserRate = someGameGetDate.GetGamerRate();
 
             return gameInfo;
         }
@@ -40,14 +40,14 @@ namespace BlackJackProject
         private GameDeskModel PrepareGame(GameInfoModel gameInfo)
         {
             List<Gamer> GamersList = new List<Gamer>();
-            PrepareGamersList BotGamers = new PrepareGamersList();
-            List<Gamer> AllGamers = BotGamers.GenerateBotList(GamersList, gameInfo.HowManyBots);
-            AllGamers = BotGamers.AddPlayer(AllGamers, gameInfo.UserName, gameInfo.UserRate, GamerRole.Gamer, GamerStatus.Plays);
-            AllGamers = BotGamers.AddPlayer(AllGamers, TextCuts.DealerName, Settings.DealerRate, GamerRole.Dealer, GamerStatus.Plays);
+            PrepareGamersList botGamers = new PrepareGamersList();
+            List<Gamer> AllGamers = botGamers.GenerateBotList(GamersList, gameInfo.HowManyBots);
+            AllGamers = botGamers.AddPlayer(AllGamers, gameInfo.UserName, gameInfo.UserRate, GamerRole.Gamer, GamerStatus.Plays);
+            AllGamers = botGamers.AddPlayer(AllGamers, TextCuts.DealerName, Settings.DealerRate, GamerRole.Dealer, GamerStatus.Plays);
 
             var cardDeck = PrepareCardDeck.DoOneDeck();
-            PrepareGameDesk PrepareGame = new PrepareGameDesk();
-            List<Gamer> GamerList = PrepareGame.DistributionCards(AllGamers, cardDeck);
+            PrepareGameDesk prepareGame = new PrepareGameDesk();
+            List<Gamer> GamerList = prepareGame.DistributionCards(AllGamers, cardDeck);
 
             var gameDeskModel = new GameDeskModel();
             gameDeskModel.GamerListAfterPrepare = GamerList;

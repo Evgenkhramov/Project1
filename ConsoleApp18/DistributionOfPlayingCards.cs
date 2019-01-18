@@ -7,20 +7,18 @@ using BlackJackProject.Dictionary;
 
 namespace BlackJackProject
 {
-    class DistributionOfPlayingCards
+    public class DistributionOfPlayingCards
     {
+        private ConsoleOutput output = new ConsoleOutput();
         public void DoRound(Gamer gamer, List<OneCard> newSomeDeck)
-        {
-            ConsoleOutput Output = new ConsoleOutput();
-
-            Output.ShowSomeOutput(gamer.Name);
+        { 
+            output.ShowSomeOutput(gamer.Name);
 
             OneCard SomeCard = PrepareCardDeck.GetSomeCard(newSomeDeck);
             int cardPoints = CardPointDictionary.cardPointDict[SomeCard.CardNumber];
             gamer.Points += cardPoints;
 
-            Output.ShowResult(SomeCard.CardNumber, SomeCard.CardSuit, gamer.Points);
-
+            output.ShowResult(SomeCard.CardNumber, SomeCard.CardSuit, gamer.Points);
         }
     }
 }

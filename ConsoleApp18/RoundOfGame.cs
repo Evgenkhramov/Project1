@@ -12,8 +12,7 @@ namespace BlackJackProject
 {
     public class RoundOfGame
     {
-         static ConsoleInput input = new ConsoleInput();
-         static ConsoleOutput output = new ConsoleOutput();
+         private static ConsoleOutput output = new ConsoleOutput();
 
         public void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
@@ -41,14 +40,14 @@ namespace BlackJackProject
                 if(answer != TextCuts.Yes)
                 {
                     SomeGamer.Status = GamerStatus.Enough;
-                    Console.WriteLine(SomeGamer.Status);
+                    output.ShowSomeOutput(SomeGamer.Status);
                 }
             }
             if(SomeGamer.Role == GamerRole.Bot)
             {
                 if (SomeGamer.Status != GamerStatus.Enough)
                 {
-                    if (GetRandom() == 1)
+                    if (GetRandom(2) == 1)
                     {
                         DoPoints(SomeGamer, newSomeDeck);
                     }
@@ -79,19 +78,19 @@ namespace BlackJackProject
         public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
         {
             output.ShowSomeOutput(SomeGamer.Name);
-            var element = PrepareCardDeck.GetSomeCard(newSomeDeck);
-            var cardPoints = CardPointDictionary.cardPointDict[element.CardNumber];
+            OneCard element = PrepareCardDeck.GetSomeCard(newSomeDeck);
+            int cardPoints = CardPointDictionary.cardPointDict[element.CardNumber];
             SomeGamer.Points += cardPoints;
             DoGamerStatus(SomeGamer);
             output.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.Points);
-            Console.WriteLine(SomeGamer.Status);
+            output.ShowSomeOutput(SomeGamer.Status);
             output.ShowSomeOutput("");
         }
 
-        public static int GetRandom()
+        public static int GetRandom(int maxNumber)
         {
-            Random random = new Random(2);
-            int randomNumber = random.Next(2);
+            Random random = new Random();
+            int randomNumber = random.Next(maxNumber);
 
             return randomNumber;
         }
