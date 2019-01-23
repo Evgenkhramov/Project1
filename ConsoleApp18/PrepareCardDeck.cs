@@ -14,7 +14,7 @@ namespace BlackJackProject
             var cards = new List<OneCard>(52);
             foreach (var suitName in Enum.GetNames(typeof(Enums.Suit)))
             {
-                foreach (KeyValuePair<string, int> keyValue in CardPointDictionary.cardPointDict)
+                foreach (KeyValuePair<string, int> keyValue in CardPointDiction.CardPointDict)
                 {
                     cards.Add(new OneCard
                     {
@@ -27,30 +27,30 @@ namespace BlackJackProject
             return cards;
         }
 
-        public static int GetCardRandomIndex(int DeckLength)
+        public static int GetCardRandomIndex(int deckLength)
         {
-            if (DeckLength > 0)
+            if (deckLength > 0)
             {
                 var random = new Random();
-                int value = random.Next(0, DeckLength);
+                int value = random.Next(0, deckLength);
                 return value;
             }
 
             return 0;
         }
 
-        public static OneCard GetSomeCard(List<OneCard> NewCardDeck)
+        public static OneCard GetSomeCard(List<OneCard> newCardDeck)
         {
-            int indexCard = GetCardRandomIndex(NewCardDeck.Count);
+            int indexCard = GetCardRandomIndex(newCardDeck.Count);
             if (indexCard >= 0)
             {
-                var someCard = NewCardDeck[indexCard];
-                NewCardDeck.RemoveAt(indexCard);
+                var someCard = newCardDeck[indexCard];
+                newCardDeck.RemoveAt(indexCard);
 
                 return someCard;
             }
 
-            return NewCardDeck[0];
+            return newCardDeck[0];
         }
     }
 }

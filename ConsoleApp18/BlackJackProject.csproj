@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DependencyInjectionLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DependencyInjection.1.2.0\lib\netstandard2.0\DependencyInjectionLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +53,8 @@
     <Compile Include="Enums\Suit.cs" />
     <Compile Include="Enums\GamerStatus.cs" />
     <Compile Include="IntCheck.cs" />
+    <Compile Include="Models\CardHistory.cs" />
+    <Compile Include="Models\GameHistory.cs" />
     <Compile Include="Models\Gamer.cs" />
     <Compile Include="Models\OneCard.cs" />
     <Compile Include="PrepareCardDeck.cs" />
@@ -70,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

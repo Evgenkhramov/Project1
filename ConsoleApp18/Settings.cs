@@ -16,6 +16,8 @@ namespace BlackJackProject
         public static int MaxRateForGamer { get; private set; }
         public static int MinRateForGamer { get; private set; }
         public static int MaxBots { get; private set; }
+        public static int MinBots { get; private set; }
+        public static int HowManyCardsInFirstRound { get; private set; }
 
         public Settings()
         {
@@ -26,6 +28,8 @@ namespace BlackJackProject
             MaxRateForGamer = 50;
             MinRateForGamer = 1;
             MaxBots = 6;
+            MinBots = 0;
+            HowManyCardsInFirstRound = 2;
         }
     }
 }

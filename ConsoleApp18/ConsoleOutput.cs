@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
+using BlackJackProject.Models;
 
 namespace BlackJackProject
 {
     public class ConsoleOutput
     {
+
 
         public void ShowFinishResult(List<Gamer> GamerList)
         {
@@ -42,5 +44,13 @@ namespace BlackJackProject
         {
             Console.WriteLine(text, number1, number2);
         }
+        public void PrintHistory(List<CardHistory> history)
+        {
+            foreach (CardHistory element in history)
+            {
+                Console.WriteLine($"Name: {element.GamerName} have: {element.GamerPoints} Points  and card: { element.CardOfRound.CardNumber} {element.CardOfRound.CardSuit}");
+            }
+        }
     }
+
 }

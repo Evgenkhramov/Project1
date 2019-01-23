@@ -5,9 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
 
+
 namespace BlackJackProject
 {
-    public class ConsoleInput
+    interface IInput
+    {
+        string InputString();
+        int InputInt(int min, int max);
+    }
+
+    public class ConsoleInput:IInput  
     {
         public string InputString()
         {
@@ -16,9 +23,10 @@ namespace BlackJackProject
 
         public int InputInt( int min, int max)
         {
-            var intCheck = new IntCheck();
+            var intCheck = new NumberValidation();
             int validNumber = intCheck.CheckNumber( min, max);
             return validNumber;
-        }    
+        }   
+        
     }
 }

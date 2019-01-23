@@ -29,9 +29,8 @@ namespace BlackJackProject
         {
             iutput.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
 
-            int howMany = input.InputInt(0, Settings.MaxBots);
-            int howManyBots = howMany;
-
+            int howManyBots = input.InputInt(Settings.MinBots, Settings.MaxBots);
+         
             return howManyBots;
         }
 

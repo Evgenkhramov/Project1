@@ -8,9 +8,9 @@ namespace BlackJackProject.Models
 {
     public class GameInfoModel
     {
-        public string UserName ;
-        public int HowManyBots ;
-        public int UserRate;
+        public string UserName { get; set; }
+        public int HowManyBots { get; set; }
+        public int UserRate { get; set; }
 
     }
 }

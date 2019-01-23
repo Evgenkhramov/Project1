@@ -8,7 +8,16 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    public class Gamer
+    interface IGamer
+    {
+        string Name { get; set; }
+        int Rate { get; set; }
+        int Points { get; set; }
+        GamerStatus Status { get; set; }
+        GamerRole Role { get; set; }
+
+    }
+    public class Gamer:IGamer
     {
         public string Name { get; set; }
         public int Rate { get; set; }
@@ -18,8 +27,7 @@ namespace BlackJackProject
         public GamerRole Role { get; set; }
 
         public Gamer()
-        {
-           
+        {   
             Name = TextCuts.BotName;
             Rate = 0;
             Points = 0;

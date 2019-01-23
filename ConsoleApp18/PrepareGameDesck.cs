@@ -15,7 +15,7 @@ namespace BlackJackProject
         {
             output.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < Settings.HowManyCardsInFirstRound; i++)
             {
                 foreach (Gamer player in gamerList)
                 {

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BlackJackProject.Constanta;
 using BlackJackProject.Enums;
 
+
 namespace BlackJackProject
 {
     class Game
@@ -50,7 +51,7 @@ namespace BlackJackProject
             List<Gamer> GamerList = prepareGame.DistributionCards(AllGamers, cardDeck);
 
             var gameDeskModel = new GameDeskModel();
-            gameDeskModel.GamerListAfterPrepare = GamerList;
+            gameDeskModel.gamerListAfterPrepare = GamerList;
             gameDeskModel.cardDeck = cardDeck;
 
             return gameDeskModel;
@@ -60,7 +61,7 @@ namespace BlackJackProject
         {
             RoundOfGame makeGame = new RoundOfGame();
 
-            foreach (Gamer player in gameDeskModel.GamerListAfterPrepare)
+            foreach (Gamer player in gameDeskModel.gamerListAfterPrepare)
             {
                 while (player.Status == GamerStatus.Plays)
                 {
@@ -68,7 +69,7 @@ namespace BlackJackProject
                 }
             }
             var gameProcessResult = new GameProcess();
-            gameProcessResult.AfterGameArray = gameDeskModel.GamerListAfterPrepare;
+            gameProcessResult.afterGameArray = gameDeskModel.gamerListAfterPrepare;
 
             return gameProcessResult;
         }
@@ -79,9 +80,11 @@ namespace BlackJackProject
             var input = new ConsoleInput();
             var output = new ConsoleOutput();
 
-            gameResult.GetFinishResult(result.AfterGameArray);
+            gameResult.GetFinishResult(result.afterGameArray);
 
-            output.ShowFinishResult(result.AfterGameArray);
+            output.ShowFinishResult(result.afterGameArray);
+            output.ShowSomeOutput(TextCuts.GameHistory);
+            output.PrintHistory(GameHistory.History);
 
             input.InputString();
         }

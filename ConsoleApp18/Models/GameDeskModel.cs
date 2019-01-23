@@ -8,7 +8,7 @@ namespace BlackJackProject.Models
 {
     public class GameDeskModel
     {
-        public List<Gamer> GamerListAfterPrepare;
+        public List<Gamer> gamerListAfterPrepare;
         public List<OneCard> cardDeck;
         
     }

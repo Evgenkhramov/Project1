@@ -8,6 +8,6 @@ namespace BlackJackProject
 {
     class GameProcess
     {
-        public List<Gamer> AfterGameArray;
+        public List<Gamer> afterGameArray;
     }
 }

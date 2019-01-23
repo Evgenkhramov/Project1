@@ -12,79 +12,73 @@ namespace BlackJackProject
 {
     public class RoundOfGame
     {
-         private static ConsoleOutput output = new ConsoleOutput();
+        private ConsoleOutput output = new ConsoleOutput();
+        private static ConsoleInput input = new ConsoleInput();
 
-        public void DoRoundForGamer(Gamer SomeGamer, List<OneCard> newSomeDeck)
+
+        public void DoRoundForGamer(Gamer someGamer, List<OneCard> newSomeDeck)
         {
-            if (SomeGamer.Role == GamerRole.Dealer)
+            var oneRound = new DistributionOfPlayingCards();
+            if (someGamer.Role == GamerRole.Dealer && someGamer.Points < Settings.MinimumCasinoPointsLevel)
             {
-                if (SomeGamer.Points < Settings.MinimumCasinoPointsLevel)
-                {
-                    DoPoints(SomeGamer, newSomeDeck);
-                }
-                if(SomeGamer.Points >= Settings.MinimumCasinoPointsLevel)
-                {
-                    SomeGamer.Status = GamerStatus.Enough;
-                }
+                oneRound.DoRound(someGamer, newSomeDeck);
+                DoGamerStatus(someGamer);
             }
-            if (SomeGamer.Role == GamerRole.Gamer && SomeGamer.Status != GamerStatus.Enough)
+            if (someGamer.Role == GamerRole.Dealer && someGamer.Points >= Settings.MinimumCasinoPointsLevel)
             {
-                output.ShowSomeOutput(TextCuts.NowYouHave + SomeGamer.Points);
+                someGamer.Status = GamerStatus.Enough;
+            }
+
+            if (someGamer.Role == GamerRole.Gamer && someGamer.Status != GamerStatus.Enough)
+            {
+                output.ShowSomeOutput(TextCuts.NowYouHave + someGamer.Points);
                 output.ShowSomeOutput(TextCuts.DoYouWantCard);
 
-                string answer = Console.ReadLine();
+                string answer = input.InputString();
                 if (answer == TextCuts.Yes)
                 {
-                    DoPoints(SomeGamer, newSomeDeck);
+                    oneRound.DoRound(someGamer, newSomeDeck);
+                    DoGamerStatus(someGamer);
                 }
-                if(answer != TextCuts.Yes)
+                if (answer != TextCuts.Yes)
                 {
-                    SomeGamer.Status = GamerStatus.Enough;
-                    output.ShowSomeOutput(SomeGamer.Status);
+                    someGamer.Status = GamerStatus.Enough;
+                    output.ShowSomeOutput(someGamer.Status);
                 }
             }
-            if(SomeGamer.Role == GamerRole.Bot)
+            if (someGamer.Role == GamerRole.Bot && someGamer.Status != GamerStatus.Enough)
             {
-                if (SomeGamer.Status != GamerStatus.Enough)
+                if (someGamer.Points <= 15)
                 {
-                    if (GetRandom(2) == 1)
-                    {
-                        DoPoints(SomeGamer, newSomeDeck);
-                    }
-                    else
-                    {
-                        SomeGamer.Status = GamerStatus.Enough;
-                    }
+                    oneRound.DoRound(someGamer, newSomeDeck);
+                    DoGamerStatus(someGamer);
+                }
+                if (GetRandom(2) == 1 && someGamer.Points > 15)
+                {
+                    oneRound.DoRound(someGamer, newSomeDeck);
+                    DoGamerStatus(someGamer);
+                }
+                if (GetRandom(2) == 0 && someGamer.Points > 15)
+                {
+                    someGamer.Status = GamerStatus.Enough;
                 }
             }
         }
 
-        public static void DoGamerStatus(Gamer SomeGamer)
+        public static void DoGamerStatus(Gamer someGamer)
         {
-            if (SomeGamer.Points < Settings.BlackJeckPoints)
+            if (someGamer.Points < Settings.BlackJeckPoints)
             {
-                SomeGamer.Status = GamerStatus.Plays;
+                someGamer.Status = GamerStatus.Plays;
             }
-            else if (SomeGamer.Points == Settings.BlackJeckPoints)
+            if (someGamer.Points == Settings.BlackJeckPoints)
             {
-                SomeGamer.Status = GamerStatus.Blackjack;
+                someGamer.Status = GamerStatus.Blackjack;
             }
-            else
+            if (someGamer.Points > Settings.BlackJeckPoints)
             {
-                SomeGamer.Status = GamerStatus.Many;
+                someGamer.Status = GamerStatus.Many;
             }
-        }
-
-        public static void DoPoints(Gamer SomeGamer, List<OneCard> newSomeDeck)
-        {
-            output.ShowSomeOutput(SomeGamer.Name);
-            OneCard element = PrepareCardDeck.GetSomeCard(newSomeDeck);
-            int cardPoints = CardPointDictionary.cardPointDict[element.CardNumber];
-            SomeGamer.Points += cardPoints;
-            DoGamerStatus(SomeGamer);
-            output.ShowResult(element.CardNumber, element.CardSuit, SomeGamer.Points);
-            output.ShowSomeOutput(SomeGamer.Status);
-            output.ShowSomeOutput("");
         }
 
         public static int GetRandom(int maxNumber)
@@ -94,7 +88,5 @@ namespace BlackJackProject
 
             return randomNumber;
         }
-
-
     }
 }

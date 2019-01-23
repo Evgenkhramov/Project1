@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Dictionary;
+using BlackJackProject.Models;
 
 namespace BlackJackProject
 {
@@ -15,8 +16,10 @@ namespace BlackJackProject
             output.ShowSomeOutput(gamer.Name);
 
             OneCard SomeCard = PrepareCardDeck.GetSomeCard(newSomeDeck);
-            int cardPoints = CardPointDictionary.cardPointDict[SomeCard.CardNumber];
+            int cardPoints = CardPointDiction.CardPointDict[SomeCard.CardNumber];
             gamer.Points += cardPoints;
+
+            GameHistory.AddGameHistory(GameHistory.History, gamer, SomeCard);
 
             output.ShowResult(SomeCard.CardNumber, SomeCard.CardSuit, gamer.Points);
         }
