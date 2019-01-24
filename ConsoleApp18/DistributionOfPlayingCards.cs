@@ -19,7 +19,7 @@ namespace BlackJackProject
             int cardPoints = CardPointDiction.CardPointDict[SomeCard.CardNumber];
             gamer.Points += cardPoints;
 
-            GameHistory.AddGameHistory(GameHistory.History, gamer, SomeCard);
+            GameHistoryList.AddGameHistory(GameHistoryList.History, gamer, SomeCard);
 
             output.ShowResult(SomeCard.CardNumber, SomeCard.CardSuit, gamer.Points);
         }

@@ -11,10 +11,12 @@ namespace BlackJackProject
     interface IInput
     {
         string InputString();
+      
+ 
         int InputInt(int min, int max);
     }
 
-    public class ConsoleInput:IInput  
+    public class ConsoleInput : IInput  
     {
         public string InputString()
         {

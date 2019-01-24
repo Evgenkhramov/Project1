@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BlackJackProject.Models
 {
     
-    public class GameHistory
+    public class GameHistoryList
     {
         public static List<CardHistory> History = new List<CardHistory>();
         public static void AddGameHistory(List<CardHistory> historyList, Gamer gamer, OneCard oneCard)
@@ -16,7 +16,6 @@ namespace BlackJackProject.Models
            
             historyList.Add(newRecord);
 
-        }
-        
+        }   
     }
 }

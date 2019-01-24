@@ -7,27 +7,31 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    public class DateFromGamer
+    class DateFromGamer
     {
-        private ConsoleInput input = new ConsoleInput();
-        private ConsoleOutput iutput = new ConsoleOutput();
+        private IInput input;
+        public DateFromGamer(IInput input)
+        {
+            this.input = input;
+        }
+        //private ConsoleInput input = new ConsoleInput();
+        private ConsoleOutput output = new ConsoleOutput();
 
         public void ShowStart()
         {
-            iutput.ShowSomeOutput(TextCuts.StartGame);
-            iutput.ShowSomeOutput(TextCuts.EnterName);
+            output.ShowSomeOutput(TextCuts.StartGame);
+            output.ShowSomeOutput(TextCuts.EnterName);
         }
 
         public string GetUserName()
         {
             string userName = input.InputString();
-
             return userName;
         }
 
         public int GetNumberOfBots()
         {
-            iutput.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
+            output.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
 
             int howManyBots = input.InputInt(Settings.MinBots, Settings.MaxBots);
          
@@ -36,11 +40,11 @@ namespace BlackJackProject
 
         public int GetGamerRate()
         {
-            iutput.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
+            output.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
 
             int rate = input.InputInt(Settings.MinRateForGamer, Settings.MaxRateForGamer);
 
-            iutput.ShowSomeOutput(TextCuts.ShowStartRaund);
+            output.ShowSomeOutput(TextCuts.ShowStartRaund);
 
             return rate;
         }
