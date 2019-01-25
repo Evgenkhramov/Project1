@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
+using Ninject;
 
 
 namespace BlackJackProject
 {
+
     interface IInput
     {
         string InputString();
-      
- 
+       
         int InputInt(int min, int max);
     }
 

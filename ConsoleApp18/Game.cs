@@ -6,16 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
 using BlackJackProject.Enums;
+using Ninject;
 
 
 namespace BlackJackProject
 {
     class Game
     {
-        Settings GameSettings = new Settings();
+
+        Settings game;
 
         public Game()
         {
+            game = new Settings();
             GameInfoModel Date = GetGameInfo();
             GameDeskModel Prepare = PrepareGame(Date);
             GameProcess GameProcess = DoGame(Prepare);

@@ -4,17 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
+using Ninject;
 
 namespace BlackJackProject
 {
     class DateFromGamer
     {
-        private IInput input;
-        public DateFromGamer(IInput input)
-        {
-            this.input = input;
-        }
-        //private ConsoleInput input = new ConsoleInput();
+        //private IInput input;
+        //public DateFromGamer(IInput input)
+        //{
+        //    this.input = input;
+        //}
+        //IKernel ninjectKernel = new StandardKernel();
+        //ninjectKernel.Bind<IInput>().To<ConsoleInput>();
+        private ConsoleInput input = new ConsoleInput();
         private ConsoleOutput output = new ConsoleOutput();
 
         public void ShowStart()

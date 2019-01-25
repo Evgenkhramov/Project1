@@ -18,6 +18,7 @@ namespace BlackJackProject
         public static int MaxBots { get; private set; }
         public static int MinBots { get; private set; }
         public static int HowManyCardsInFirstRound { get; private set; }
+
         public static string HistoryDirectoryPath { get; private set; }
         public static string HistoryDirectorySubPath { get; private set; }
         public static string HistoryFileName { get; private set; }
@@ -33,6 +34,7 @@ namespace BlackJackProject
             MaxBots = 6;
             MinBots = 0;
             HowManyCardsInFirstRound = 2;
+
             HistoryDirectoryPath = @"C:\BlackJeck";
             HistoryDirectorySubPath = @"history";
             HistoryFileName = "HistoryText.txt";
