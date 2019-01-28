@@ -8,7 +8,7 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    interface IGamer
+    public abstract class GamerAbstr
     {
         string Name { get; set; }
         int Rate { get; set; }
@@ -17,7 +17,7 @@ namespace BlackJackProject
         GamerRole Role { get; set; }
 
     }
-    public class Gamer:IGamer
+    public class Gamer:GamerAbstr
     {
         public string Name { get; set; }
         public int Rate { get; set; }

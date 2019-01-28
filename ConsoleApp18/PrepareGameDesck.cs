@@ -9,11 +9,16 @@ namespace BlackJackProject
 {
     public class PrepareGameDesk
     {
-        ConsoleOutput output = new ConsoleOutput();
-
+        private IOutput _output;
+       
+        PrepareGameDesk(IOutput output)
+        {
+            _output = output;          
+        }
+       
         public List<Gamer> DistributionCards(List<Gamer> gamerList, List<OneCard> cardDeckList)
         {
-            output.ShowSomeOutput(TextCuts.NewCards);
+            _output.ShowSomeOutput(TextCuts.NewCards);
             var oneRound = new DistributionOfPlayingCards();
             for (int i = 0; i < Settings.HowManyCardsInFirstRound; i++)
             {
@@ -22,7 +27,7 @@ namespace BlackJackProject
                     oneRound.DoRound(player, cardDeckList);
                 }
             } 
-            output.ShowSomeOutput(TextCuts.CardsOnTable);
+            _output.ShowSomeOutput(TextCuts.CardsOnTable);
 
             return gamerList;
         }

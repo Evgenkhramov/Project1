@@ -8,49 +8,48 @@ using Ninject;
 
 namespace BlackJackProject
 {
-    class DateFromGamer
+     class DateFromGamer
     {
-        //private IInput input;
-        //public DateFromGamer(IInput input)
-        //{
-        //    this.input = input;
-        //}
-        //IKernel ninjectKernel = new StandardKernel();
-        //ninjectKernel.Bind<IInput>().To<ConsoleInput>();
-        private ConsoleInput input = new ConsoleInput();
-        private ConsoleOutput output = new ConsoleOutput();
-
-        public void ShowStart()
+        private IOutput _output;
+        private IInput _input ;
+        public DateFromGamer(IOutput output, IInput input)
         {
-            output.ShowSomeOutput(TextCuts.StartGame);
-            output.ShowSomeOutput(TextCuts.EnterName);
-        }
+            _output = output;
+            _input = input;
 
+        }
         public string GetUserName()
         {
-            string userName = input.InputString();
+            string userName = _input.InputString();
             return userName;
+        }
+        public void ShowStart()
+        {
+            _output.ShowSomeOutput(TextCuts.StartGame);
+            _output.ShowSomeOutput(TextCuts.EnterName);
         }
 
         public int GetNumberOfBots()
         {
-            output.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
+            _output.ShowSomeOutput(TextCuts.HowManyBots,Settings.MaxBots);
 
-            int howManyBots = input.InputInt(Settings.MinBots, Settings.MaxBots);
+            int howManyBots = _input.InputInt(Settings.MinBots, Settings.MaxBots);
          
             return howManyBots;
         }
 
         public int GetGamerRate()
         {
-            output.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
+            _output.ShowSomeOutput(TextCuts.EnterValidRate, Settings.MinRateForGamer, Settings.MaxRateForGamer);
 
-            int rate = input.InputInt(Settings.MinRateForGamer, Settings.MaxRateForGamer);
+            int rate = _input.InputInt(Settings.MinRateForGamer, Settings.MaxRateForGamer);
 
-            output.ShowSomeOutput(TextCuts.ShowStartRaund);
+            _output.ShowSomeOutput(TextCuts.ShowStartRaund);
 
             return rate;
         }
+      
+        
     }
 }
 

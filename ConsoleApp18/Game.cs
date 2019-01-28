@@ -13,11 +13,14 @@ namespace BlackJackProject
 {
     class Game
     {
+        
 
         Settings game;
 
         public Game()
         {
+            var ConsoleOut = new ConsoleOutput();
+            var ConsoleInp = new ConsoleInput();
             game = new Settings();
             GameInfoModel Date = GetGameInfo();
             GameDeskModel Prepare = PrepareGame(Date);
@@ -28,7 +31,11 @@ namespace BlackJackProject
         //return model
         private GameInfoModel GetGameInfo()
         {
-            var someGameGetDate = new DateFromGamer();
+            var ConsoleOut = new ConsoleOutput();
+            var ConsoleInp = new ConsoleInput();
+
+
+            var someGameGetDate = new DateFromGamer(ConsoleOut, ConsoleInp);
             someGameGetDate.ShowStart();
             string UserName = someGameGetDate.GetUserName();
             int HowManyBots = someGameGetDate.GetNumberOfBots();
@@ -43,6 +50,8 @@ namespace BlackJackProject
 
         private GameDeskModel PrepareGame(GameInfoModel gameInfo)
         {
+            var ConsoleOut = new ConsoleOutput();
+            var ConsoleInp = new ConsoleInput();
             List<Gamer> GamersList = new List<Gamer>();
             PrepareGamersList botGamers = new PrepareGamersList();
             List<Gamer> AllGamers = botGamers.GenerateBotList(GamersList, gameInfo.HowManyBots);
@@ -50,7 +59,7 @@ namespace BlackJackProject
             AllGamers = botGamers.AddPlayer(AllGamers, TextCuts.DealerName, Settings.DealerRate, GamerRole.Dealer, GamerStatus.Plays);
 
             var cardDeck = PrepareCardDeck.DoOneDeck();
-            PrepareGameDesk prepareGame = new PrepareGameDesk();
+            PrepareGameDesk prepareGame = new PrepareGameDesk(ConsoleOut);
             List<Gamer> GamerList = prepareGame.DistributionCards(AllGamers, cardDeck);
 
             var gameDeskModel = new GameDeskModel();
@@ -62,6 +71,8 @@ namespace BlackJackProject
 
         private GameProcess DoGame(GameDeskModel gameDeskModel)
         {
+            var ConsoleOut = new ConsoleOutput();
+            var ConsoleInp = new ConsoleInput();
             RoundOfGame makeGame = new RoundOfGame();
 
             foreach (Gamer player in gameDeskModel.gamerListAfterPrepare)
@@ -80,8 +91,8 @@ namespace BlackJackProject
         private void CheckResult(GameProcess result)
         {
             var gameResult = new GameResult();
-            var input = new ConsoleInput();
-            var output = new ConsoleOutput();
+            var ConsoleOut = new ConsoleOutput();
+            var ConsoleInp = new ConsoleInput();
             var createDirectory = new DirectoryAndFileOfHistory();
 
             gameResult.GetFinishResult(result.afterGameArray);
