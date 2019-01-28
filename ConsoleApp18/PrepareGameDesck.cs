@@ -7,15 +7,16 @@ using BlackJackProject.Constanta;
 
 namespace BlackJackProject
 {
-    public class PrepareGameDesk
+    //почему то низзя поставить public
+    class PrepareGameDesk
     {
         private IOutput _output;
-       
-        PrepareGameDesk(IOutput output)
+
+        public PrepareGameDesk(IOutput output)
         {
-            _output = output;          
+            _output = output;
         }
-       
+
         public List<Gamer> DistributionCards(List<Gamer> gamerList, List<OneCard> cardDeckList)
         {
             _output.ShowSomeOutput(TextCuts.NewCards);
@@ -26,7 +27,7 @@ namespace BlackJackProject
                 {
                     oneRound.DoRound(player, cardDeckList);
                 }
-            } 
+            }
             _output.ShowSomeOutput(TextCuts.CardsOnTable);
 
             return gamerList;

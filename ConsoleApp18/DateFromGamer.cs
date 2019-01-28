@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
-using Ninject;
+//using Ninject;
 
 namespace BlackJackProject
 {
@@ -16,7 +16,6 @@ namespace BlackJackProject
         {
             _output = output;
             _input = input;
-
         }
         public string GetUserName()
         {
