@@ -88,6 +88,7 @@
     <Compile Include="Enums\GamerStatus.cs" />
     <Compile Include="IntCheck.cs" />
     <Compile Include="Models\CardHistory.cs" />
+    <Compile Include="Models\DisplayGameResults.cs" />
     <Compile Include="Models\GameHistoryList.cs" />
     <Compile Include="Models\Gamer.cs" />
     <Compile Include="Models\OneCard.cs" />

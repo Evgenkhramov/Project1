@@ -9,7 +9,7 @@ using BlackJackProject.Models;
 
 namespace BlackJackProject
 {
-    interface IOutput
+    public interface IOutput
     {
         void ShowFinishResult(List<Gamer> gamerList);
         void ShowResult(string number, string suit, int points);
@@ -18,12 +18,12 @@ namespace BlackJackProject
         void ShowSomeOutput(string text, int number1, int number2);    
         void ShowSomeOutput(Enums.GamerStatus text);
     }
-    interface IPrint
+    public interface IPrint
     {
         void PrintHistory(List<CardHistory> history);
     }
 
-    public class ConsoleOutput : IOutput, IPrint
+    public class PrintOutput : IPrint
     {
         public void PrintHistory(List<CardHistory> history)
         {
@@ -32,6 +32,11 @@ namespace BlackJackProject
                 Console.WriteLine($"Name: {element.GamerName} have: {element.GamerPoints} Points  and card: { element.CardOfRound.CardNumber} {element.CardOfRound.CardSuit}");
             }
         }
+    }
+
+    public class ConsoleOutput : IOutput
+    {
+        
 
         public void ShowFinishResult(List<Gamer> gamerList)
         {
