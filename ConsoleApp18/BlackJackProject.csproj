@@ -87,6 +87,8 @@
     <Compile Include="Enums\Suit.cs" />
     <Compile Include="Enums\GamerStatus.cs" />
     <Compile Include="IntCheck.cs" />
+    <Compile Include="Interfeces\Print.cs" />
+    <Compile Include="Interfeces\Output.cs" />
     <Compile Include="Models\CardHistory.cs" />
     <Compile Include="Models\DisplayGameResults.cs" />
     <Compile Include="Models\GameHistoryList.cs" />

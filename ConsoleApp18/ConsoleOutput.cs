@@ -6,23 +6,10 @@ using System.Threading.Tasks;
 using BlackJackProject.Constanta;
 using BlackJackProject.Enums;
 using BlackJackProject.Models;
+using BlackJackProject.Interfeces;
 
 namespace BlackJackProject
 {
-    public interface IOutput
-    {
-        void ShowFinishResult(List<Gamer> gamerList);
-        void ShowResult(string number, string suit, int points);
-        void ShowSomeOutput(string text);
-        void ShowSomeOutput(string text, int number);
-        void ShowSomeOutput(string text, int number1, int number2);    
-        void ShowSomeOutput(Enums.GamerStatus text);
-    }
-    public interface IPrint
-    {
-        void PrintHistory(List<CardHistory> history);
-    }
-
     public class PrintOutput : IPrint
     {
         public void PrintHistory(List<CardHistory> history)
@@ -36,8 +23,6 @@ namespace BlackJackProject
 
     public class ConsoleOutput : IOutput
     {
-        
-
         public void ShowFinishResult(List<Gamer> gamerList)
         {
             foreach (Gamer player in gamerList)
@@ -72,6 +57,4 @@ namespace BlackJackProject
             Console.WriteLine(text);
         }
     }
-   
-
 }

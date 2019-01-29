@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJackProject.Constanta;
+using BlackJackProject.Interfeces;
 
 namespace BlackJackProject.Models
 {
@@ -12,6 +13,7 @@ namespace BlackJackProject.Models
         private IPrint _print;
 
         private IOutput _output;
+
         public DisplayGameResults(IOutput output, IPrint print)
         {
             _output = output;

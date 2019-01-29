@@ -23,8 +23,7 @@ namespace BlackJackProject
             {
                 dirInfo.CreateSubdirectory(subpath);
             }
-            return fullName;
-            
+            return fullName;       
         }
         public string CreateFile(string filename, string directoryFullName)
         {

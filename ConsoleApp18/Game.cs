@@ -96,10 +96,12 @@ namespace BlackJackProject
             var displayGameResult = new DisplayGameResults(consoleOut, printOut);
 
             gameResult.GetFinishResult(result.afterGameArray);
+
             string fullName = createDirectory.CreateDirectory(Settings.HistoryDirectoryPath, Settings.HistoryDirectorySubPath);
             string fullFileName = createDirectory.CreateFile(Settings.HistoryFileName, fullName);
             HelperTextFileHistory textFile = new HelperTextFileHistory();
             textFile.WriteHistoryStringToFile(fullFileName, GameHistoryList.History);
+
             displayGameResult.FinishResult(result.afterGameArray, GameHistoryList.History);
             
             //input.InputString();
